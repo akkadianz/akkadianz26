@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   title: "AKKADIANZ'26 | National Level Technical Symposium",
   description:
     'AKKADIANZ\'26 is a National Level Technical Symposium by the Departments of ECE & BME, SBM College of Engineering and Technology, Dindigul. 13 March 2026.',
+  icons: {
+    icon: '/images/akkadianz-logo.png',
+    shortcut: '/images/akkadianz-logo.png',
+    apple: '/images/akkadianz-logo.png',
+  },
   keywords: [
     'AKKADIANZ',
     'technical symposium',
