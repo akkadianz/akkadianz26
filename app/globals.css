@@ -1,0 +1,462 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@font-face {
+  font-family: 'InceptionBold';
+  src: url('/fonts/InceptionBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0B0620;
+  --foreground: #E0E7FF;
+  --card: rgba(91, 46, 255, 0.06);
+  --card-foreground: #E0E7FF;
+  --popover: #0B0620;
+  --popover-foreground: #E0E7FF;
+  --primary: #5B2EFF;
+  --primary-foreground: #0B0620;
+  --secondary: #2563EB;
+  --secondary-foreground: #E0E7FF;
+  --muted: rgba(127, 90, 240, 0.15);
+  --muted-foreground: #C7D2FE;
+  --accent: #7F5AF0;
+  --accent-foreground: #E0E7FF;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: rgba(127, 90, 240, 0.2);
+  --input: rgba(127, 90, 240, 0.2);
+  --ring: #5B2EFF;
+  --chart-1: #5B2EFF;
+  --chart-2: #3B82F6;
+  --chart-3: #7F5AF0;
+  --chart-4: #1A0B2E;
+  --chart-5: #0F172A;
+  --radius: 0.75rem;
+  --sidebar: #120A2A;
+  --sidebar-foreground: #E0E7FF;
+  --sidebar-primary: #5B2EFF;
+  --sidebar-primary-foreground: #0B0620;
+  --sidebar-accent: rgba(127, 90, 240, 0.15);
+  --sidebar-accent-foreground: #E0E7FF;
+  --sidebar-border: rgba(127, 90, 240, 0.25);
+  --sidebar-ring: #5B2EFF;
+}
+
+@theme inline {
+  --font-sans: 'Orbitron', 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-inception: 'InceptionBold', 'Orbitron', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-indigo-deep: #1A0B2E;
+  --color-purple-royal: #5B2EFF;
+  --color-violet-electric: #7F5AF0;
+  --color-blue-neon: #00D4FF;
+  --color-blue-midnight: #0F172A;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* =============================================
+   GRID BACKGROUND
+   ============================================= */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(91, 46, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 46, 255, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* =============================================
+   GLASS CARD EFFECTS
+   ============================================= */
+.glass-card {
+  background: rgba(91, 46, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(127, 90, 240, 0.15);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(91, 46, 255, 0.35);
+  box-shadow: 0 8px 40px rgba(91, 46, 255, 0.15), 0 0 20px rgba(37, 99, 235, 0.08);
+}
+
+.glass-card-strong {
+  background: rgba(91, 46, 255, 0.1);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(127, 90, 240, 0.25);
+}
+
+/* =============================================
+   3D CONSTRUCT PANELS
+   ============================================= */
+.construct-panel {
+  background: rgba(91, 46, 255, 0.04);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(127, 90, 240, 0.15);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  will-change: transform;
+}
+
+.construct-panel:hover {
+  transform: translateZ(20px) rotateX(0deg) rotateY(0deg);
+  border-color: rgba(91, 46, 255, 0.35);
+  box-shadow: 0 40px 100px rgba(26, 11, 46, 0.7), 0 0 30px rgba(91, 46, 255, 0.12), 0 0 60px rgba(37, 99, 235, 0.06);
+}
+
+/* =============================================
+   GLOW EFFECTS
+   ============================================= */
+.glow-border {
+  box-shadow: 0 0 15px rgba(91, 46, 255, 0.15), inset 0 0 15px rgba(91, 46, 255, 0.04);
+}
+
+.glow-text {
+  text-shadow: 0 0 30px rgba(91, 46, 255, 0.6), 0 0 60px rgba(37, 99, 235, 0.25);
+}
+
+.glow-neon {
+  text-shadow: 0 0 10px rgba(127, 90, 240, 0.8), 0 0 30px rgba(91, 46, 255, 0.5), 0 0 60px rgba(37, 99, 235, 0.25);
+}
+
+/* Gradient heading text: purple → blue */
+.gradient-text {
+  background: linear-gradient(135deg, #7F5AF0 0%, #5B2EFF 40%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+/* Gradient heading with glow */
+.gradient-text-glow {
+  background: linear-gradient(135deg, #7F5AF0 0%, #5B2EFF 40%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(91, 46, 255, 0.3));
+}
+
+/* =============================================
+   ANIMATED GRADIENT BORDER
+   ============================================= */
+.gradient-border-animated {
+  position: relative;
+  overflow: hidden;
+}
+.gradient-border-animated::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle, 0deg), #5B2EFF, #2563EB, #7F5AF0, #3B82F6, #5B2EFF);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: rotate-gradient 4s linear infinite;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-gradient {
+  to { --angle: 360deg; }
+}
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+
+/* Fade in from below */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px) translateZ(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Z-axis hero entrance */
+@keyframes z-entrance {
+  from {
+    opacity: 0;
+    transform: translateZ(-400px) scale(0.7);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+    filter: blur(0);
+  }
+}
+.animate-z-entrance {
+  animation: z-entrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Light sweep across text */
+@keyframes light-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-light-sweep {
+  background: linear-gradient(
+    90deg,
+    #E0E7FF 0%,
+    #E0E7FF 30%,
+    #7F5AF0 45%,
+    #3B82F6 55%,
+    #E0E7FF 70%,
+    #E0E7FF 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: light-sweep 4s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(91, 46, 255, 0.2); }
+  50% { box-shadow: 0 0 50px rgba(91, 46, 255, 0.4), 0 0 80px rgba(37, 99, 235, 0.15); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Radial pulse behind elements */
+@keyframes radial-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+.animate-radial-pulse {
+  animation: radial-pulse 4s ease-in-out infinite;
+}
+
+/* Subtle neon flicker */
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+.animate-neon-flicker {
+  animation: neon-flicker 5s ease-in-out infinite;
+}
+
+/* Rotating wireframe */
+@keyframes wireframe-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-wireframe-rotate {
+  animation: wireframe-rotate 60s linear infinite;
+}
+
+/* Slow grid drift */
+@keyframes grid-drift {
+  from { transform: perspective(800px) rotateX(60deg) translateY(0); }
+  to { transform: perspective(800px) rotateX(60deg) translateY(-60px); }
+}
+.animate-grid-drift {
+  animation: grid-drift 8s linear infinite;
+}
+
+/* Floating particles */
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  50% {
+    transform: translateY(-100px) translateX(20px);
+  }
+}
+
+/* Vertical beam glow */
+@keyframes beam-glow {
+  0%, 100% { opacity: 0.4; height: 0%; }
+  50% { opacity: 0.8; height: 100%; }
+}
+
+/* Section slide in */
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotateX(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+.animate-section-reveal {
+  animation: section-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* CTA button hover Z push */
+.btn-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.btn-3d:hover {
+  transform: translateZ(30px) scale(1.05);
+  box-shadow: 0 0 40px rgba(91, 46, 255, 0.4), 0 20px 60px rgba(26, 11, 46, 0.5);
+}
+
+/* =============================================
+   SCROLLBAR & SMOOTH SCROLL
+   ============================================= */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0620;
+}
+::-webkit-scrollbar-thumb {
+  background: #5B2EFF;
+  border-radius: 3px;
+}
+
+/* =============================================
+   PERSPECTIVE CONTAINER
+   ============================================= */
+.perspective-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* =============================================
+   DEPTH LAYERS
+   ============================================= */
+.depth-bg {
+  transform: translateZ(-200px) scale(1.17);
+  will-change: transform;
+}
+.depth-mid {
+  transform: translateZ(0);
+  will-change: transform;
+}
+.depth-fg {
+  transform: translateZ(80px) scale(0.94);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* =============================================
+   MOBILE REDUCTIONS
+   ============================================= */
+@media (max-width: 768px) {
+  .perspective-container {
+    perspective: none;
+    transform: none !important;
+  }
+  .depth-bg,
+  .depth-mid,
+  .depth-fg {
+    transform: none;
+  }
+  .construct-panel {
+    transform: none !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .construct-panel:hover {
+    transform: none !important;
+  }
+  .btn-3d:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(91, 46, 255, 0.3);
+  }
+  .animate-wireframe-rotate {
+    animation: none;
+    display: none;
+  }
+  .animate-grid-drift {
+    animation: none;
+  }
+  .animate-z-entrance {
+    animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .glow-neon {
+    text-shadow: 0 0 8px rgba(127, 90, 240, 0.6);
+  }
+  .glow-text {
+    text-shadow: 0 0 15px rgba(91, 46, 255, 0.3);
+  }
+  .gradient-border-animated::before {
+    animation-duration: 8s;
+  }
+}
