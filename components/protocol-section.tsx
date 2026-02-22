@@ -33,19 +33,19 @@ export default function ProtocolSection() {
         </FadeInOnScroll>
 
         <FadeInOnScroll delay={200}>
-          <div className="construct-panel mx-auto w-full max-w-4xl rounded-xl p-5 md:p-8 text-center">
-            <div className="mb-6 flex items-center justify-center gap-3">
+          <div className="construct-panel mx-auto w-full max-w-4xl rounded-xl p-5 md:p-8 text-left">
+            <div className="mb-6 flex items-center justify-start gap-3">
               <ShieldCheck className="size-4 text-[#00D4FF] sm:size-5" />
               <h3 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
                 Verification Required
               </h3>
             </div>
-            <p className="mx-auto mb-6 max-w-3xl break-words font-body text-sm leading-relaxed text-muted-foreground md:text-base">
+            <p className="mb-6 max-w-3xl break-words font-body text-sm leading-relaxed text-muted-foreground md:text-base">
               Access is confirmed only upon verification. Follow the protocol below.
             </p>
             <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {PROTOCOLS.map((item, i) => (
-                <li key={i} className="flex items-center justify-center gap-3 group text-center sm:gap-4">
+                <li key={i} className="flex items-center gap-3 group text-left sm:gap-4">
                   <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#5B2EFF]/8 transition-all duration-300 group-hover:bg-[#5B2EFF]/15 group-hover:shadow-[0_0_15px_rgba(0,212,255,0.1)] sm:size-10">
                     <item.icon className="size-3.5 text-[#00D4FF] sm:size-4" />
                   </div>

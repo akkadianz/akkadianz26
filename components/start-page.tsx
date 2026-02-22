@@ -1,6 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import localFont from "next/font/local"
+
+const inceptionTitle = localFont({
+  src: "../public/fonts/Inception.ttf",
+  display: "swap",
+})
 
 export default function StartPage({ onEnter }: { onEnter: () => void }) {
   const [visible, setVisible] = useState(true)
@@ -112,10 +118,10 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             }`}
           >
             <h1
-              className="font-inception-title max-w-full break-words text-5xl font-normal uppercase leading-tight tracking-wide text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
+              className={`${inceptionTitle.className} max-w-full break-words text-5xl font-normal uppercase leading-tight tracking-wide text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`}
             >
               AKKADIANZ
-              <span className="font-inception-title">'26</span>
+              <span className={inceptionTitle.className}>'26</span>
             </h1>
             <div className="mx-auto mt-2 h-px w-32 bg-gradient-to-r from-transparent via-[#7F5AF0] to-transparent sm:w-48 md:w-72" />
             <p className="mx-auto mt-2 max-w-3xl font-sans text-base font-bold uppercase tracking-[0.15em] leading-relaxed text-[#c8b8e8] md:text-lg lg:text-xl">
