@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Orbitron, Space_Grotesk } from 'next/font/google'
+import { Noto_Sans_Tamil } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -12,6 +14,18 @@ const orbitron = Orbitron({
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
+  display: 'swap',
+})
+
+const notoSansTamil = Noto_Sans_Tamil({
+  subsets: ['tamil'],
+  variable: '--font-tamil-local',
+  display: 'swap',
+})
+
+const inception = localFont({
+  src: '../public/fonts/Inception.ttf',
+  variable: '--font-inception-local',
   display: 'swap',
 })
 
@@ -48,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${orbitron.variable} ${spaceGrotesk.variable} font-body antialiased`}
+        className={`${orbitron.variable} ${spaceGrotesk.variable} ${notoSansTamil.variable} ${inception.variable} font-body antialiased overflow-x-hidden`}
       >
         {children}
         <Analytics />

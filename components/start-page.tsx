@@ -31,7 +31,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/start-bg.jpg')" }}
+        style={{ backgroundImage: "url('/images/start-bg.png')" }}
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0620]/90 via-[#120A2A]/40 to-[#0B0620]/80" />
@@ -39,86 +39,86 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar - stacks vertically on mobile */}
-        <header className="flex flex-col items-center gap-3 px-4 pt-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4 sm:px-6 md:px-8 lg:px-12 lg:pt-8">
-          {/* College logo - smaller on mobile */}
+        <header className="flex items-start justify-between gap-2 px-3 pt-3 sm:gap-4 sm:px-6 md:px-8 lg:px-12 lg:pt-8">
+          {/* College logo - fixed side on mobile */}
           <div
-            className={`order-1 shrink-0 transition-all duration-700 delay-200 sm:order-none ${
+            className={`shrink-0 transition-all duration-700 delay-200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
             <img
               src="/images/sbm-logo.jpg"
               alt="SBM College of Engineering and Technology logo"
-              className="size-12 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-16 md:size-20 lg:size-24"
+              className="size-11 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-16 md:size-20 lg:size-24"
             />
           </div>
 
-          {/* College name and details */}
+          {/* College name and details - centered between side logos */}
           <div
-            className={`order-3 flex-1 text-center transition-all duration-700 delay-300 sm:order-none ${
+            className={`flex-1 px-1 text-center transition-all duration-700 delay-300 sm:px-0 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
-            <h2 className="font-sans text-xs font-bold uppercase tracking-wider text-[#E0E7FF] sm:text-sm md:text-lg lg:text-2xl text-balance">
+            <h2 className="whitespace-nowrap font-sans text-[12px] font-bold uppercase leading-tight tracking-[0.01em] text-[#E0E7FF] sm:text-[17px] md:text-[25px] lg:text-[38px]">
               SBM College of Engineering & Technology
             </h2>
-            <p className="mt-0.5 font-body text-[8px] text-[#C7D2FE] sm:text-[10px] md:text-xs">
+            <p className="mt-0.5 font-body text-[8px] leading-snug text-[#C7D2FE] sm:text-[12px] md:text-[14px]">
               Approved by AICTE, New Delhi and Affiliated to Anna University - Chennai
             </p>
-            <p className="font-body text-[8px] text-[#C7D2FE] sm:text-[10px] md:text-xs">
+            <p className="font-body text-[8px] leading-snug text-[#C7D2FE] sm:text-[12px] md:text-[14px]">
               SBM Nagar, Thamaraipadi, Trichy Road, Dindigul - 624005
             </p>
-            <div className="mt-1.5 sm:mt-2 md:mt-3">
-              <p className="font-sans text-[8px] font-bold uppercase tracking-wider text-[#C7D2FE] sm:text-[10px] md:text-sm">
+            <div className="mt-2.5 space-y-0.5 sm:mt-2.5 md:mt-3.5">
+              <p className="whitespace-nowrap font-sans text-[8px] font-bold uppercase leading-none tracking-[0.005em] text-[#C7D2FE] sm:text-[13px] md:text-[18px]">
                 Department of Electronics & Communication Engineering
               </p>
-              <p className="font-sans text-[8px] font-bold uppercase tracking-wider text-[#C7D2FE] sm:text-[10px] md:text-sm">
+              <p className="whitespace-nowrap font-sans text-[8px] font-bold uppercase leading-none tracking-[0.005em] text-[#C7D2FE] sm:text-[13px] md:text-[18px]">
                 Department of Biomedical Engineering
               </p>
             </div>
-            <p className="mt-1 font-body text-[10px] italic text-[#C7D2FE]/70 sm:mt-1.5 sm:text-xs md:text-sm">
+            <p className="mt-1 font-body text-[11px] italic leading-snug text-[#C7D2FE]/70 sm:mt-1 sm:text-[14px] md:text-[17px]">
               Proudly presents
             </p>
           </div>
 
-          {/* Founder - beside logo on mobile row */}
+          {/* Founder - fixed side on mobile */}
           <div
-            className={`order-2 shrink-0 text-center transition-all duration-700 delay-400 sm:order-none ${
+            className={`shrink-0 text-center transition-all duration-700 delay-400 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
             <img
               src="/images/founder.jpg"
               alt="Ln.Dr.N.Jayaraj, Founder, SBM Institutions"
-              className="mx-auto size-12 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-16 md:size-20 lg:size-24"
+              className="mx-auto size-11 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-16 md:size-20 lg:size-24"
             />
-            <p className="mt-0.5 font-sans text-[7px] font-bold text-[#f0f0ff] sm:text-[9px] md:text-[10px] lg:text-xs">
+            <p className="mt-0.5 font-sans text-[7px] font-bold text-[#f0f0ff] sm:text-[11px] md:text-[12px] lg:text-[14px]">
               Ln.Dr.N.Jayaraj
             </p>
-            <p className="font-body text-[6px] uppercase tracking-wider text-[#a0a0c0] sm:text-[7px] md:text-[8px]">
-              Founder
+            <p className="font-body text-[7px] uppercase tracking-wide text-[#a0a0c0] sm:text-[8px] md:text-[10px]">
+              Founder & Chairman
             </p>
-            <p className="font-body text-[6px] uppercase tracking-wider text-[#a0a0c0] sm:text-[7px] md:text-[8px]">
+            <p className="font-body text-[7px] uppercase tracking-wide text-[#a0a0c0] sm:text-[8px] md:text-[10px]">
               SBM Institutions
             </p>
           </div>
         </header>
 
         {/* Center: Title */}
-        <div className="flex flex-1 flex-col items-center justify-center px-4">
+        <div className="flex flex-1 flex-col items-center justify-start px-4 pt-3 sm:justify-center sm:pt-0">
           <div
             className={`text-center transition-all duration-1000 delay-500 ${
               loaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
             }`}
           >
             <h1
-              className="text-3xl font-bold uppercase tracking-[0.1em] text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)] sm:text-4xl sm:tracking-[0.15em] md:text-6xl lg:text-7xl xl:text-9xl text-balance"
-              style={{ fontFamily: 'var(--font-inception)' }}
+              className="font-inception-title max-w-full break-words text-5xl font-normal uppercase leading-tight tracking-wide text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
             >
-              {"AKKADIANZ'26"}
+              AKKADIANZ
+              <span className="font-inception-title">'26</span>
             </h1>
             <div className="mx-auto mt-2 h-px w-32 bg-gradient-to-r from-transparent via-[#7F5AF0] to-transparent sm:w-48 md:w-72" />
-            <p className="mt-2 font-sans text-[10px] font-bold uppercase tracking-[0.15em] text-[#c8b8e8] sm:mt-3 sm:text-xs sm:tracking-[0.25em] md:text-sm lg:text-lg">
+            <p className="mx-auto mt-2 max-w-3xl font-sans text-base font-bold uppercase tracking-[0.15em] leading-relaxed text-[#c8b8e8] md:text-lg lg:text-xl">
               A National Level Technical Symposium
             </p>
           </div>
@@ -131,7 +131,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
           >
             <button
               onClick={handleEnter}
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg border border-[#7F5AF0]/50 bg-[#5B2EFF]/20 px-6 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8E0F0] backdrop-blur-sm transition-all duration-300 hover:border-[#00D4FF]/60 hover:bg-[#5B2EFF]/30 hover:shadow-[0_0_40px_rgba(91,46,255,0.4)] hover:scale-105 sm:px-10 sm:py-3 sm:text-xs sm:tracking-[0.3em] md:px-14 md:py-4 md:text-base"
+              className="group animate-pulse-glow relative inline-flex items-center gap-2 overflow-hidden rounded-lg border border-[#7F5AF0]/60 bg-[#5B2EFF]/20 px-6 py-2.5 font-sans text-[12px] font-bold uppercase tracking-[0.2em] text-[#E8E0F0] shadow-[0_0_22px_rgba(127,90,240,0.35)] backdrop-blur-sm transition-all duration-300 hover:border-[#00D4FF]/70 hover:bg-[#5B2EFF]/35 hover:shadow-[0_0_55px_rgba(0,212,255,0.35)] hover:scale-105 sm:px-10 sm:py-3 sm:text-[14px] sm:tracking-[0.3em] md:px-14 md:py-4 md:text-[19px]"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#5B2EFF]/0 via-[#00D4FF]/10 to-[#5B2EFF]/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <span className="relative">Enter the Construct</span>
@@ -152,7 +152,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
         {/* Bottom line */}
         <div className="px-4 pb-4 text-center sm:px-8 sm:pb-6">
           <p
-            className={`font-body text-[8px] uppercase tracking-[0.2em] text-[#a0a0c0]/50 transition-all duration-700 delay-[900ms] sm:text-[9px] sm:tracking-[0.3em] md:text-[10px] ${
+            className={`font-body text-[10px] uppercase tracking-[0.2em] text-[#a0a0c0]/50 transition-all duration-700 delay-[900ms] sm:text-[11px] sm:tracking-[0.3em] md:text-[12px] ${
               loaded ? "opacity-100" : "opacity-0"
             }`}
           >

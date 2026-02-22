@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
@@ -171,16 +171,16 @@ function EventCard({ event, accentColor }: { event: EventData; accentColor: stri
       {/* Trigger */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex w-full items-center justify-between py-3 pl-3 pr-2 text-left sm:py-4 sm:pl-4"
+        className="group flex w-full items-center justify-between px-6 py-4 text-center"
       >
-        <div className="flex flex-col items-start gap-0.5 sm:gap-1">
-          <span className="font-sans text-xs font-bold uppercase tracking-wider text-[#E8E0F0] transition-colors group-hover:text-[#00D4FF] sm:text-sm md:text-base">
+        <div className="flex flex-1 flex-col items-center gap-1">
+          <span className="font-sans text-sm font-semibold uppercase tracking-wider text-[#E8E0F0] transition-colors group-hover:text-[#00D4FF] md:text-base">
             {event.name}
           </span>
-          <span className="font-body text-[10px] text-[#A89BC2] sm:text-xs">{event.tagline}</span>
+          <span className="font-body text-sm leading-relaxed text-[#A89BC2]">{event.tagline}</span>
         </div>
         <ChevronDown
-          className={`size-3.5 shrink-0 text-[#A89BC2] transition-transform duration-500 sm:size-4 ${
+          className={`size-4 shrink-0 text-[#A89BC2] transition-transform duration-500 ${
             isOpen ? 'rotate-180' : ''
           }`}
         />
@@ -194,17 +194,17 @@ function EventCard({ event, accentColor }: { event: EventData; accentColor: stri
           opacity: isOpen ? 1 : 0,
         }}
       >
-        <div className="space-y-4 pb-3 pl-3 pr-2 sm:space-y-5 sm:pb-4 sm:pl-4">
-          <p className="font-body text-xs leading-relaxed text-[#A89BC2] sm:text-sm">{event.description}</p>
+        <div className="space-y-4 px-6 pb-6 text-center">
+          <p className="font-body text-sm leading-relaxed text-[#A89BC2]">{event.description}</p>
 
           <div>
-            <h4 className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#00D4FF] sm:mb-2 sm:text-[10px] sm:tracking-[0.3em]">
+            <h4 className="mb-2 font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
               Format
             </h4>
-            <ul className="space-y-1 sm:space-y-1.5">
+            <ul className="space-y-2">
               {event.format.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 font-body text-xs text-[#E8E0F0]/80 sm:text-sm">
-                  <span className="mt-1 block size-1 shrink-0 rounded-full sm:mt-1.5 sm:size-1.5" style={{ background: accentColor }} />
+                <li key={i} className="flex items-start justify-center gap-2 text-center font-body text-sm leading-relaxed text-[#E8E0F0]/80">
+                  <span className="mt-1.5 block size-1.5 shrink-0 rounded-full" style={{ background: accentColor }} />
                   {item}
                 </li>
               ))}
@@ -212,30 +212,30 @@ function EventCard({ event, accentColor }: { event: EventData; accentColor: stri
           </div>
 
           <div>
-            <h4 className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#00D4FF] sm:mb-2 sm:text-[10px] sm:tracking-[0.3em]">
+            <h4 className="mb-2 font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
               Scoring
             </h4>
-            <div className="space-y-1">
+            <div className="space-y-2">
               {event.scoring.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between rounded-md bg-[#5B2EFF]/5 px-2 py-1 font-body text-xs sm:px-3 sm:py-1.5 sm:text-sm"
+                  className="flex items-center justify-between rounded-md bg-[#5B2EFF]/5 px-3 py-2 font-body text-sm leading-relaxed"
                 >
                   <span className="text-[#E8E0F0]/80">{item.label}</span>
-                  <span className="font-sans text-[10px] font-bold text-[#00D4FF] sm:text-xs">{item.points}</span>
+                  <span className="font-sans text-sm font-semibold text-[#00D4FF]">{item.points}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h4 className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#00D4FF] sm:mb-2 sm:text-[10px] sm:tracking-[0.3em]">
+            <h4 className="mb-2 font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
               Rules
             </h4>
-            <ul className="space-y-1 sm:space-y-1.5">
+            <ul className="space-y-2">
               {event.rules.map((rule, i) => (
-                <li key={i} className="flex items-start gap-2 font-body text-xs text-[#E8E0F0]/80 sm:text-sm">
-                  <span className="mt-1 block size-1 shrink-0 rounded-full bg-[#7F5AF0] sm:mt-1.5 sm:size-1.5" />
+                <li key={i} className="flex items-start justify-center gap-2 text-center font-body text-sm leading-relaxed text-[#E8E0F0]/80">
+                  <span className="mt-1.5 block size-1.5 shrink-0 rounded-full bg-[#7F5AF0]" />
                   {rule}
                 </li>
               ))}
@@ -252,7 +252,7 @@ function EventCard({ event, accentColor }: { event: EventData; accentColor: stri
    =========================================== */
 export default function LayerSection() {
   return (
-    <section id="events" className="relative py-16 px-4 sm:py-24">
+    <section id="events" className="relative py-14 md:py-28">
       {/* Section background glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-full max-w-5xl"
@@ -262,23 +262,23 @@ export default function LayerSection() {
         <div className="absolute right-0 bottom-1/4 size-40 rounded-full bg-[radial-gradient(circle,rgba(0,212,255,0.03)_0%,transparent_70%)] blur-3xl sm:size-80" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl">
-        <FadeInOnScroll className="mb-10 text-center sm:mb-14">
-          <p className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.4em] text-[#00D4FF] glow-text sm:mb-2 sm:text-[10px] sm:tracking-[0.5em]">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-16">
+        <FadeInOnScroll className="mb-10 space-y-4 text-center md:mb-14">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.35em] text-[#00D4FF] glow-text">
             The Construct
           </p>
-          <h2 className="font-sans text-xl font-bold tracking-wider text-[#E8E0F0] sm:text-2xl md:text-3xl lg:text-4xl text-balance">
+          <h2 className="font-sans text-2xl font-semibold text-[#E8E0F0] md:text-3xl lg:text-4xl">
             Two Realities. One Core.
           </h2>
         </FadeInOnScroll>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
           {/* LAYER 01 */}
           <FadeInOnScroll delay={150}>
-            <div className="construct-panel rounded-xl p-4 sm:rounded-2xl sm:p-6 md:p-8">
-              <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+            <div className="construct-panel rounded-xl p-6 md:p-8">
+              <div className="mb-6 flex items-center gap-3">
                 <div className="h-px flex-1 bg-gradient-to-r from-[#5B2EFF] to-transparent" />
-                <h3 className="font-sans text-[8px] font-bold uppercase tracking-[0.3em] text-[#5B2EFF] sm:text-[10px] sm:tracking-[0.4em]">
+                <h3 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#5B2EFF] md:text-xl">
                   {'LAYER_01 // ACTUAL REALITY'}
                 </h3>
                 <div className="h-px flex-1 bg-gradient-to-l from-[#5B2EFF] to-transparent" />
@@ -291,10 +291,10 @@ export default function LayerSection() {
 
           {/* LAYER 02 */}
           <FadeInOnScroll delay={300}>
-            <div className="construct-panel rounded-xl p-4 sm:rounded-2xl sm:p-6 md:p-8">
-              <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+            <div className="construct-panel rounded-xl p-6 md:p-8">
+              <div className="mb-6 flex items-center gap-3">
                 <div className="h-px flex-1 bg-gradient-to-r from-[#00D4FF] to-transparent" />
-                <h3 className="font-sans text-[8px] font-bold uppercase tracking-[0.3em] text-[#00D4FF] sm:text-[10px] sm:tracking-[0.4em]">
+                <h3 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
                   {'LAYER_02 // DREAM CONSTRUCT'}
                 </h3>
                 <div className="h-px flex-1 bg-gradient-to-l from-[#00D4FF] to-transparent" />
@@ -309,3 +309,5 @@ export default function LayerSection() {
     </section>
   )
 }
+
+

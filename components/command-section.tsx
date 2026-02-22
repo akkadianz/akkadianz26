@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { Phone } from 'lucide-react'
 import { FadeInOnScroll } from '@/components/hero-section'
@@ -41,17 +41,17 @@ const STUDENT_COORDINATORS: Person[] = [
 
 function PersonCard({ person }: { person: Person }) {
   return (
-    <div className="construct-panel flex flex-col gap-0.5 rounded-lg px-3 py-2 sm:gap-1 sm:rounded-xl sm:px-4 sm:py-3">
-      <span className="font-body text-xs font-medium text-foreground sm:text-sm">{person.name}</span>
+    <div className="construct-panel flex flex-col items-center gap-1 rounded-xl p-6 text-center md:p-8">
+      <span className="font-body text-sm font-medium leading-relaxed text-foreground md:text-base">{person.name}</span>
       {person.title && (
-        <span className="font-body text-[10px] text-muted-foreground sm:text-xs">{person.title}</span>
+        <span className="font-body text-sm leading-relaxed text-muted-foreground">{person.title}</span>
       )}
       {person.phone && (
         <a
           href={`tel:${person.phone.replace(/\s/g, '')}`}
-          className="mt-0.5 inline-flex items-center gap-1 font-body text-[10px] text-[#00D4FF] hover:underline sm:mt-1 sm:gap-1.5 sm:text-xs"
+          className="mt-1 inline-flex items-center gap-2 font-body text-sm text-[#00D4FF] hover:underline"
         >
-          <Phone className="size-2.5 sm:size-3" />
+          <Phone className="size-3" />
           {person.phone}
         </a>
       )}
@@ -61,10 +61,10 @@ function PersonCard({ person }: { person: Person }) {
 
 function SectionBlock({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="mb-6 sm:mb-8">
-      <div className="mb-3 flex items-center gap-2 sm:mb-4 sm:gap-3">
+    <div className="mb-8">
+      <div className="mb-4 flex items-center gap-3">
         <div className="h-px flex-1 bg-gradient-to-r from-[#5B2EFF]/50 to-transparent" />
-        <h3 className="font-sans text-[8px] font-bold uppercase tracking-[0.3em] text-[#5B2EFF] sm:text-[10px] sm:tracking-[0.4em]">
+        <h3 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#5B2EFF] md:text-xl">
           {label}
         </h3>
         <div className="h-px flex-1 bg-gradient-to-l from-[#5B2EFF]/50 to-transparent" />
@@ -76,20 +76,20 @@ function SectionBlock({ label, children }: { label: string; children: React.Reac
 
 export default function CommandSection() {
   return (
-    <section id="command" className="relative py-16 px-4 sm:py-24">
-      <div className="relative mx-auto max-w-4xl">
-        <FadeInOnScroll className="mb-10 text-center sm:mb-14">
-          <p className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.4em] text-[#00D4FF] glow-text sm:mb-2 sm:text-[10px] sm:tracking-[0.5em]">
+    <section id="command" className="relative py-14 md:py-28">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-16">
+        <FadeInOnScroll className="mb-10 space-y-4 text-center md:mb-14">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.35em] text-[#00D4FF] glow-text">
             Command Architecture
           </p>
-          <h2 className="font-sans text-xl font-bold tracking-wider text-foreground sm:text-2xl md:text-3xl lg:text-4xl text-balance">
+          <h2 className="font-sans text-2xl font-semibold text-foreground md:text-3xl lg:text-4xl">
             The Architects Behind the Construct
           </h2>
         </FadeInOnScroll>
 
         <FadeInOnScroll delay={150}>
           <SectionBlock label="Chief Patrons">
-            <div className="grid gap-2 sm:grid-cols-2 sm:gap-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
               {CHIEF_PATRONS.map((p) => (
                 <PersonCard key={p.name} person={p} />
               ))}
@@ -111,7 +111,7 @@ export default function CommandSection() {
 
         <FadeInOnScroll delay={450}>
           <SectionBlock label="Faculty Coordinators">
-            <div className="grid gap-2 sm:grid-cols-2 sm:gap-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
               {FACULTY_COORDINATORS.map((p) => (
                 <PersonCard key={p.name} person={p} />
               ))}
@@ -121,7 +121,7 @@ export default function CommandSection() {
 
         <FadeInOnScroll delay={550}>
           <SectionBlock label="Student Coordinators">
-            <div className="grid gap-2 sm:grid-cols-2 sm:gap-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
               {STUDENT_COORDINATORS.map((p) => (
                 <PersonCard key={p.name} person={p} />
               ))}
@@ -132,3 +132,5 @@ export default function CommandSection() {
     </section>
   )
 }
+
+

@@ -1,37 +1,38 @@
-'use client'
+﻿'use client'
 
 import { FileText, Upload } from 'lucide-react'
 import { FadeInOnScroll } from '@/components/hero-section'
 
 export default function AbstractSubmission() {
   return (
-    <section id="abstract" className="relative py-16 px-4 sm:py-24">
+    <section id="abstract" className="relative py-14 md:py-28">
       {/* Background glow */}
       <div
         className="pointer-events-none absolute left-1/4 top-1/3 size-48 rounded-full bg-[radial-gradient(circle,rgba(0,212,255,0.03)_0%,transparent_70%)] blur-3xl sm:size-96"
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-3xl">
-        <FadeInOnScroll className="mb-10 text-center sm:mb-14">
-          <p className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.4em] text-[#00D4FF] glow-text sm:mb-2 sm:text-[10px] sm:tracking-[0.5em]">
+      <div className="relative w-full flex justify-center px-4 sm:px-6 md:px-10 lg:px-16">
+        <div className="mx-auto w-full max-w-3xl space-y-6 text-center">
+        <FadeInOnScroll className="mb-10 space-y-4 text-center md:mb-14">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.35em] text-[#00D4FF] glow-text">
             Paper Presentation
           </p>
-          <h2 className="font-sans text-xl font-bold tracking-wider text-foreground sm:text-2xl md:text-3xl text-balance">
+          <h2 className="font-sans text-2xl font-semibold text-foreground md:text-3xl lg:text-4xl">
             Submit Your Abstract
           </h2>
         </FadeInOnScroll>
 
         <FadeInOnScroll delay={200}>
-          <div className="construct-panel rounded-xl p-4 sm:rounded-2xl sm:p-6 md:p-8">
-            <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+          <div className="construct-panel mx-auto w-full max-w-3xl rounded-xl p-5 md:p-8 text-center">
+            <div className="mb-6 flex items-center justify-center gap-3">
               <FileText className="size-4 text-[#00D4FF] sm:size-5" />
-              <h3 className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[#00D4FF] sm:text-xs sm:tracking-[0.3em]">
+              <h3 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
                 Submission Format
               </h3>
             </div>
 
-            <p className="mb-4 font-body text-xs leading-relaxed text-muted-foreground sm:mb-6 sm:text-sm">
+            <p className="mx-auto mb-6 max-w-3xl break-words font-body text-sm leading-relaxed text-muted-foreground md:text-base">
               Submit your abstract via email to{' '}
               <a
                 href="mailto:akkadianz.ece.sbmcet@gmail.com?subject=Abstract%20Submission%20-%20AKKADIANZ'26"
@@ -42,18 +43,18 @@ export default function AbstractSubmission() {
               on or before <span className="font-semibold text-foreground">10 March 2026</span>.
             </p>
 
-            <div className="mb-4 space-y-2 sm:mb-6 sm:space-y-3">
-              <h4 className="font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#5B2EFF] sm:text-[10px] sm:tracking-[0.3em]">
+            <div className="mb-6 space-y-4 text-center">
+              <h4 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#5B2EFF] md:text-xl">
                 Required Fields
               </h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <ul className="space-y-2">
                 {[
                   'Title of the Paper',
                   'Author(s) Name & Institution',
                   'Abstract (Max 250 words)',
                   'Keywords',
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 font-body text-xs text-foreground/80 sm:gap-3 sm:text-sm">
+                  <li key={item} className="flex items-center justify-center gap-3 break-words text-center font-body text-sm leading-relaxed text-foreground/80 md:text-base">
                     <span className="block size-1 shrink-0 rounded-full bg-[#5B2EFF] sm:size-1.5" />
                     {item}
                   </li>
@@ -61,11 +62,11 @@ export default function AbstractSubmission() {
               </ul>
             </div>
 
-            <div className="mb-4 space-y-2 sm:mb-6 sm:space-y-3">
-              <h4 className="font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#5B2EFF] sm:text-[10px] sm:tracking-[0.3em]">
+            <div className="mb-6 space-y-4 text-center">
+              <h4 className="font-sans text-lg font-semibold uppercase tracking-wider text-[#5B2EFF] md:text-xl">
                 Guidelines
               </h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <ul className="space-y-2">
                 {[
                   'The abstract should clearly define the problem, methodology, and key findings.',
                   'Ensure that the content is original and plagiarism-free.',
@@ -73,7 +74,7 @@ export default function AbstractSubmission() {
                   'Upload your full paper in PDF format (recommended).',
                   'Late submissions may not be considered.',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 font-body text-xs text-foreground/80 sm:gap-3 sm:text-sm">
+                  <li key={item} className="flex items-start justify-center gap-3 break-words text-center font-body text-sm leading-relaxed text-foreground/80 md:text-base">
                     <span className="mt-1 block size-1 shrink-0 rounded-full bg-[#7F5AF0] sm:mt-1.5 sm:size-1.5" />
                     {item}
                   </li>
@@ -81,19 +82,19 @@ export default function AbstractSubmission() {
               </ul>
             </div>
 
-            <div className="gradient-border-animated relative rounded-lg bg-[#0a0520]/60 p-3 text-center sm:rounded-xl sm:p-4">
-              <p className="mb-0.5 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#00D4FF] sm:mb-1 sm:text-[10px] sm:tracking-[0.3em]">
+            <div className="gradient-border-animated relative rounded-lg bg-[#0a0520]/60 p-5 text-center md:p-8">
+              <p className="mb-2 font-sans text-lg font-semibold uppercase tracking-wider text-[#00D4FF] md:text-xl">
                 Submission Deadline
               </p>
-              <p className="font-sans text-base font-bold tracking-wider text-foreground glow-text sm:text-lg">
+              <p className="font-sans text-2xl font-semibold tracking-wide text-foreground glow-text md:text-3xl">
                 10 March 2026
               </p>
             </div>
 
-            <div className="mt-4 flex justify-center sm:mt-6">
+            <div className="mt-6 flex justify-center">
               <a
                 href="mailto:akkadianz.ece.sbmcet@gmail.com?subject=Abstract%20Submission%20-%20AKKADIANZ'26"
-                className="btn-3d inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#5B2EFF] to-[#00D4FF] px-6 py-2.5 font-sans text-xs font-bold uppercase tracking-widest text-[#0F172A] sm:px-8 sm:py-3 sm:text-sm"
+                className="btn-3d inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#5B2EFF] to-[#00D4FF] px-6 py-3 font-sans text-sm font-semibold uppercase tracking-widest text-[#0F172A] md:px-8 md:text-base"
               >
                 <Upload className="size-3.5 sm:size-4" />
                 Submit via Email
@@ -101,7 +102,10 @@ export default function AbstractSubmission() {
             </div>
           </div>
         </FadeInOnScroll>
+        </div>
       </div>
     </section>
   )
 }
+
+

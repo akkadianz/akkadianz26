@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { FadeInOnScroll } from '@/components/hero-section'
@@ -26,19 +26,19 @@ function getTimeLeft(): TimeLeft | null {
 
 function TimerBox({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center gap-1.5 sm:gap-3">
-      <div className="gradient-border-animated relative flex size-14 items-center justify-center rounded-xl bg-[#0a0520]/80 backdrop-blur-xl sm:size-18 md:size-24 sm:rounded-2xl">
+    <div className="flex w-full flex-col items-center gap-2">
+      <div className="gradient-border-animated relative flex aspect-square w-full max-w-[110px] items-center justify-center rounded-xl bg-[#0a0520]/80 backdrop-blur-xl md:max-w-[130px] md:rounded-2xl lg:max-w-[150px]">
         {/* Radial pulse behind */}
         <div
           className="animate-radial-pulse absolute inset-0 rounded-xl sm:rounded-2xl"
           style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%)' }}
           aria-hidden="true"
         />
-        <span className="relative font-sans text-xl font-bold glow-neon animate-neon-flicker sm:text-2xl md:text-4xl" style={{ color: '#00D4FF' }}>
+        <span className="relative font-sans text-2xl font-bold glow-neon animate-neon-flicker md:text-3xl lg:text-4xl" style={{ color: '#00D4FF' }}>
           {value}
         </span>
       </div>
-      <span className="font-body text-[8px] uppercase tracking-[0.15em] text-[#A89BC2] sm:text-[10px] sm:tracking-[0.25em] md:text-xs">
+      <span className="font-body text-xs uppercase tracking-[0.15em] text-[#A89BC2] md:text-sm">
         {label}
       </span>
     </div>
@@ -47,12 +47,12 @@ function TimerBox({ value, label }: { value: string; label: string }) {
 
 function Placeholder() {
   return (
-    <section className="relative py-12 px-4 sm:py-20">
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="mb-6 font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-[#00D4FF] sm:mb-8 sm:text-xs sm:tracking-[0.4em]">
+    <section id="countdown" className="relative py-14 md:py-28">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-16">
+        <h2 className="mb-8 text-center font-sans text-2xl font-semibold text-[#00D4FF] md:text-3xl lg:text-4xl">
           Registration Closes In
         </h2>
-        <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 justify-items-center gap-6 sm:grid-cols-4 md:gap-10">
           {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
             <TimerBox key={label} value="--" label={label} />
           ))}
@@ -78,10 +78,10 @@ export default function CountdownTimer() {
 
   if (!timeLeft) {
     return (
-      <section className="relative py-12 px-4 sm:py-20">
-        <FadeInOnScroll className="mx-auto max-w-3xl text-center">
+      <section id="countdown" className="relative py-14 md:py-28">
+        <FadeInOnScroll className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-16 text-center">
           <div className="gradient-border-animated relative inline-block rounded-xl bg-[#0a0520]/80 px-8 py-5 backdrop-blur-xl sm:rounded-2xl sm:px-12 sm:py-8">
-            <p className="font-sans text-base font-bold uppercase tracking-[0.2em] glow-neon sm:text-xl sm:tracking-[0.3em] md:text-2xl" style={{ color: '#00D4FF' }}>
+            <p className="font-sans text-xl font-semibold uppercase tracking-[0.15em] glow-neon md:text-2xl lg:text-3xl" style={{ color: '#00D4FF' }}>
               REGISTRATION CLOSED
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function CountdownTimer() {
   ]
 
   return (
-    <section className="relative py-12 px-4 sm:py-20">
+    <section id="countdown" className="relative py-14 md:py-28">
       {/* Background light burst */}
       <div
         className="animate-radial-pulse pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[300px] rounded-full sm:size-[500px]"
@@ -106,11 +106,11 @@ export default function CountdownTimer() {
         aria-hidden="true"
       />
 
-      <FadeInOnScroll className="relative mx-auto max-w-3xl text-center">
-        <h2 className="mb-6 font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-[#00D4FF] glow-text sm:mb-10 sm:text-xs sm:tracking-[0.4em]">
+      <FadeInOnScroll className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-16">
+        <h2 className="mb-8 text-center font-sans text-2xl font-semibold text-[#00D4FF] glow-text md:text-3xl lg:text-4xl">
           Registration Closes In
         </h2>
-        <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 justify-items-center gap-6 sm:grid-cols-4 md:gap-10">
           {units.map((unit) => (
             <TimerBox
               key={unit.label}
@@ -121,8 +121,10 @@ export default function CountdownTimer() {
         </div>
 
         {/* Separator line */}
-        <div className="mx-auto mt-6 h-px w-32 bg-gradient-to-r from-transparent via-[#5B2EFF]/40 to-transparent sm:mt-10 sm:w-48" />
+        <div className="mt-8 h-px w-40 bg-gradient-to-r from-transparent via-[#5B2EFF]/40 to-transparent md:w-56" />
       </FadeInOnScroll>
     </section>
   )
 }
+
+

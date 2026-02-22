@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useRef, useState } from 'react'
 import { Calendar, MapPin, IndianRupee, Clock } from 'lucide-react'
@@ -92,7 +92,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-16 sm:py-20" style={{ transformStyle: 'preserve-3d' }}>
+    <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden py-14 md:py-28" style={{ transformStyle: 'preserve-3d' }}>
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(91,46,255,0.12)_0%,transparent_60%)]" />
       <Wireframe />
@@ -107,15 +107,15 @@ export default function HeroSection() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center" style={{ transformStyle: 'preserve-3d' }}>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 text-center sm:px-6 md:px-10 lg:px-16" style={{ transformStyle: 'preserve-3d' }}>
         {/* Vanakkam */}
         <div
           className={`mb-3 transition-all duration-1000 delay-200 sm:mb-4 ${
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <p className="font-sans text-sm tracking-[0.2em] text-[#00D4FF] uppercase glow-neon animate-neon-flicker sm:text-lg sm:tracking-[0.3em]">
-            {'vanakkam!'}
+          <p className="font-tamil text-2xl tracking-normal text-[#00D4FF] glow-neon animate-neon-flicker md:text-3xl">
+            {'வணக்கம்!'}
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default function HeroSection() {
           className={`mb-4 sm:mb-6 ${loaded ? 'animate-z-entrance' : 'opacity-0'}`}
           style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
         >
-          <h1 className="animate-light-sweep font-sans text-2xl font-bold leading-tight tracking-wider sm:text-4xl md:text-5xl lg:text-7xl text-balance">
+          <h1 className="animate-light-sweep mx-auto max-w-5xl break-words font-sans text-[clamp(2rem,8vw,4rem)] font-bold leading-tight tracking-wide md:text-5xl lg:text-6xl">
             ENTER THE LAYERED CONSTRUCT
           </h1>
         </div>
@@ -135,7 +135,7 @@ export default function HeroSection() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="mx-auto mb-3 max-w-2xl font-body text-sm leading-relaxed text-[#A89BC2] sm:mb-4 sm:text-base md:text-lg">
+          <p className="mx-auto mb-3 max-w-3xl font-body text-base leading-relaxed text-[#A89BC2] md:text-lg lg:text-xl">
             {"AKKADIANZ'26 is a National Level Technical Symposium initiated by the Department of Electronics and Communication Engineering and the Department of Biomedical Engineering, SBM College of Engineering and Technology, Dindigul."}
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function HeroSection() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="mx-auto mb-6 max-w-2xl font-body text-sm leading-relaxed text-[#A89BC2] sm:mb-8 sm:text-base md:text-lg">
+          <p className="mx-auto mb-6 max-w-3xl font-body text-base leading-relaxed text-[#A89BC2] sm:mb-8 md:text-lg lg:text-xl">
             It is a constructed reality, engineered in layers, where intellect meets perception, logic meets instinct, and ideas are built with precision.
           </p>
         </div>
@@ -156,7 +156,7 @@ export default function HeroSection() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="mx-auto mb-6 flex max-w-xl flex-col items-center gap-1.5 font-body text-xs tracking-wide text-[#E8E0F0]/80 sm:mb-8 sm:gap-2 sm:text-sm md:text-base">
+          <div className="mx-auto mb-6 flex max-w-3xl flex-col items-center gap-2 font-body text-sm leading-relaxed tracking-wide text-[#E8E0F0]/80 sm:mb-8 md:text-base">
             <p>Every participant enters the construct.</p>
             <p>Every idea becomes architecture.</p>
             <p>Every layer reveals a new dimension of capability.</p>
@@ -169,7 +169,7 @@ export default function HeroSection() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="mx-auto mb-8 grid max-w-lg grid-cols-1 gap-2 sm:mb-10 sm:grid-cols-2 sm:gap-3">
+          <div className="mx-auto mb-8 grid w-full max-w-5xl grid-cols-1 gap-6 md:mb-10 md:grid-cols-2 md:gap-10">
             <DetailChip icon={<Calendar className="size-3.5 sm:size-4" />} label="13 March 2026" />
             <DetailChip icon={<MapPin className="size-3.5 sm:size-4" />} label="SBMCET, Dindigul" />
             <DetailChip icon={<IndianRupee className="size-3.5 sm:size-4" />} label="Online: 150 / Offline: 200" />
@@ -184,18 +184,18 @@ export default function HeroSection() {
           }`}
           style={{ transformStyle: 'preserve-3d' }}
         >
-          <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+          <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-center md:gap-4">
             <a
-              href="https://forms.gle/akkadianz26"
+              href="https://tally.so/r/5Bz8vM"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-3d inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#5B2EFF] to-[#00D4FF] px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-[#0F172A] sm:px-8 sm:text-sm"
+                className="btn-3d inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#5B2EFF] to-[#00D4FF] px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-[#0F172A] md:px-8 md:text-sm"
             >
               Register Now
             </a>
             <a
               href="mailto:akkadianz.ece.sbmcet@gmail.com?subject=Abstract%20Submission%20-%20AKKADIANZ'26"
-              className="btn-3d inline-flex items-center justify-center gap-2 rounded-lg border border-[#7F5AF0]/40 bg-[#7F5AF0]/10 px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-[#00D4FF] backdrop-blur-sm sm:px-8 sm:text-sm"
+                className="btn-3d inline-flex items-center justify-center gap-2 rounded-lg border border-[#7F5AF0]/40 bg-[#7F5AF0]/10 px-6 py-3 font-sans text-xs font-bold uppercase tracking-widest text-[#00D4FF] backdrop-blur-sm md:px-8 md:text-sm"
             >
               Submit Abstract
             </a>
@@ -211,11 +211,13 @@ export default function HeroSection() {
    =========================================== */
 function DetailChip({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="construct-panel flex items-center gap-2.5 rounded-lg px-3 py-2 text-left sm:gap-3 sm:px-4 sm:py-2.5">
+    <div className="construct-panel flex items-center justify-center gap-3 rounded-lg px-4 py-3 text-center">
       <span className="text-[#00D4FF]">{icon}</span>
-      <span className="font-body text-xs text-[#E8E0F0]/90 sm:text-sm">{label}</span>
+      <span className="font-body text-sm leading-relaxed text-[#E8E0F0]/90">{label}</span>
     </div>
   )
 }
 
 export { FadeInOnScroll }
+
+
