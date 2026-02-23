@@ -31,7 +31,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
       {/* Background image & Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
-        style={{ backgroundImage: "url('/images/start-bg.jpg')" }}
+        style={{ backgroundImage: "url('/images/start-bg.png')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0620]/45 via-[#120A2A]/25 to-[#0B0620]/45" />
 
