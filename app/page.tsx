@@ -178,6 +178,10 @@ export default function Home() {
         >
           {/* Background depth layer: grid + radial glows */}
           <div className="depth-bg pointer-events-none fixed inset-0 z-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45"
+              style={{ backgroundImage: "url('/images/bg.jpg')" }}
+            />
             <div className="grid-bg absolute inset-0 opacity-30" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(91,46,255,0.12)_0%,transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,212,255,0.06)_0%,transparent_50%)]" />
