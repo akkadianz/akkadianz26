@@ -30,10 +30,10 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
     >
       {/* Background image & Overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
         style={{ backgroundImage: "url('/images/start-bg.png')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0620]/90 via-[#120A2A]/70 to-[#0B0620]/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0620]/45 via-[#120A2A]/25 to-[#0B0620]/45" />
 
       {/* Clean Foundation Structure */}
       <section className="relative z-10 flex min-h-[100svh] w-full items-center">
@@ -43,15 +43,6 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {/* Header / Logos (Clean inline flow) */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <img
-                src="/images/sbm-logo.jpg"
-                alt="SBM College of Engineering and Technology logo"
-                className="size-16 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-20"
-              />
-            </div>
-
             {/* College Info (Fluid Subheadings & Descriptions) */}
             <div className="mx-auto max-w-[65ch]">
               <h2 className="text-[clamp(1rem,3.5vw,1.6rem)] font-bold uppercase tracking-normal text-[#E0E7FF]">
@@ -70,7 +61,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
 
             {/* Main Title (Fluid Typography System) */}
             <div className="mx-auto flex max-w-[65ch] flex-col gap-2">
-              <h1 className="font-inception-title break-words text-[clamp(2.5rem,8vw,7rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
+              <h1 className="font-inception-title whitespace-nowrap text-[clamp(2rem,7.5vw,7rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
                 AKKADIANZ'26
               </h1>
               <p className="text-[clamp(1.2rem,4vw,2rem)] font-semibold uppercase text-[#c8b8e8]">
