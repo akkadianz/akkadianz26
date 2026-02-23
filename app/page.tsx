@@ -169,19 +169,21 @@ export default function Home() {
       )}
 
       {entered && (
-        <div
-          className="perspective-container relative min-h-screen"
-          style={{
-            transform: `rotateX(${parallax.rotateX}deg) rotateY(${parallax.rotateY}deg)`,
-            transition: 'transform 0.1s ease-out',
-          }}
-        >
+        <>
+          <div
+            className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-45"
+            style={{ backgroundImage: "url('/images/bg.jpg')" }}
+            aria-hidden="true"
+          />
+          <div
+            className="perspective-container relative z-10 min-h-screen"
+            style={{
+              transform: `rotateX(${parallax.rotateX}deg) rotateY(${parallax.rotateY}deg)`,
+              transition: 'transform 0.1s ease-out',
+            }}
+          >
           {/* Background depth layer: grid + radial glows */}
           <div className="depth-bg pointer-events-none fixed inset-0 z-0">
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45"
-              style={{ backgroundImage: "url('/images/bg.jpg')" }}
-            />
             <div className="grid-bg absolute inset-0 opacity-30" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(91,46,255,0.12)_0%,transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(0,212,255,0.06)_0%,transparent_50%)]" />
@@ -222,7 +224,8 @@ export default function Home() {
               </div>
             </footer>
           </main>
-        </div>
+          </div>
+        </>
       )}
     </>
   )
