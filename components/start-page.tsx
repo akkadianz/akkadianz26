@@ -45,7 +45,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
           >
             {/* College Info (Fluid Subheadings & Descriptions) */}
             <div className="mx-auto max-w-[65ch]">
-              <h2 className="font-doctor-glitch text-[clamp(1rem,3.5vw,1.6rem)] font-bold uppercase tracking-normal text-[#E0E7FF]">
+              <h2 className="font-doctor-glitch whitespace-nowrap text-[clamp(1rem,3.5vw,1.6rem)] font-bold uppercase tracking-[0.12em] text-[#E0E7FF]">
                 SBM College of Engineering & Technology
               </h2>
               <div className="mx-auto mt-2 max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed text-[#C7D2FE]">
@@ -60,8 +60,8 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             </div>
 
             {/* Main Title (Fluid Typography System) */}
-            <div className="mx-auto flex max-w-[65ch] flex-col gap-2">
-              <h1 className="font-inception-title whitespace-nowrap text-[clamp(2rem,7.5vw,7rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
+            <div className="mx-auto flex w-full max-w-[65ch] flex-col items-center gap-2 text-center">
+              <h1 className="font-inception-title mx-auto whitespace-nowrap text-[clamp(2rem,7.5vw,7rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
                 AKKADIANZ'26
               </h1>
               <p className="text-[clamp(1.2rem,4vw,2rem)] font-semibold uppercase text-[#c8b8e8]">
