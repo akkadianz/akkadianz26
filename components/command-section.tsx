@@ -20,7 +20,7 @@ const PATRON: Person = {
 }
 
 const CONVENOR: Person = {
-  name: 'Mr. S. Senthil Kumaran, M.E., Ph.D.',
+  name: 'Mr. S. Senthil Kumaran, M.E., (Ph.D.)',
   title: 'HoD/ECE & BME, SBMCET',
 }
 
