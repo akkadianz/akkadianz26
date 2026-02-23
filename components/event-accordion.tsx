@@ -20,7 +20,7 @@ interface EventData {
 
 const LAYER_01_EVENTS: EventData[] = [
   {
-    name: 'Paper Presentation',
+    name: 'FRAMEWORK - Paper Presentation',
     tagline: 'Design. Defend. Construct.',
     description:
       'A formal technical presentation event where participants present innovative research, case studies, or application-driven engineering solutions. The focus is on real-world relevance, technical depth, and presentation clarity.',
@@ -43,7 +43,7 @@ const LAYER_01_EVENTS: EventData[] = [
     ],
   },
   {
-    name: 'Technical Debate',
+    name: 'PARADOX - Debate',
     tagline: 'Opposition creates clarity.',
     description:
       'A structured debate event where participants argue on contemporary technological issues (AI ethics, EV adoption, chip shortages, surveillance tech, etc.).',
@@ -68,7 +68,7 @@ const LAYER_01_EVENTS: EventData[] = [
     ],
   },
   {
-    name: 'Technical Quiz',
+    name: 'VECTOR - Quiz',
     tagline: 'Measured knowledge. Calibrated timing.',
     description:
       'A multi-round quiz testing knowledge in core technical domains: VLSI, Embedded Systems, Computing, AI, Networking, Electronics, Recent Innovations.',
@@ -84,7 +84,7 @@ const LAYER_01_EVENTS: EventData[] = [
 
 const LAYER_02_EVENTS: EventData[] = [
   {
-    name: 'Guess The Crowd',
+    name: 'PROJECTION - Guess The Crowd',
     tagline: 'Perception shapes the outcome.',
     description:
       'A high-energy audience engagement game inspired by survey-based game shows. Teams must predict the most popular answers given by the public survey.',
@@ -105,7 +105,7 @@ const LAYER_02_EVENTS: EventData[] = [
     ],
   },
   {
-    name: 'Typing Speed Competition',
+    name: 'MOMENTUM - Typing Speed Competition',
     tagline: 'Speed defines control.',
     description:
       'A competitive typing accuracy and speed challenge designed to test reflexes, precision, and composure under time pressure.',
@@ -126,7 +126,7 @@ const LAYER_02_EVENTS: EventData[] = [
     ],
   },
   {
-    name: 'Bomb Squad Tournament',
+    name: 'GRAVITY - Bomb Squad Tournament',
     tagline: 'Balance strategy. Control collapse.',
     description:
       'A high-energy multiplayer gaming event where teams compete in explosive mini-games involving survival, elimination, capture, and tactical coordination.',
@@ -171,13 +171,13 @@ function EventCard({ event, accentColor }: { event: EventData; accentColor: stri
       {/* Trigger */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex w-full items-center justify-between px-6 py-4 text-center"
+        className="group flex w-full items-center justify-between px-6 py-4 text-left"
       >
-        <div className="flex flex-1 flex-col items-center gap-1">
-          <span className="font-sans text-sm font-semibold uppercase tracking-wider text-[#E8E0F0] transition-colors group-hover:text-[#00D4FF] md:text-base">
+        <div className="flex flex-1 flex-col items-start gap-1">
+          <span className="font-sans text-base font-bold uppercase tracking-wider text-[#E8E0F0] transition-colors group-hover:text-[#00D4FF] md:text-lg">
             {event.name}
           </span>
-          <span className="font-body text-sm leading-relaxed text-[#A89BC2]">{event.tagline}</span>
+          <span className="font-body text-xs leading-relaxed text-[#A89BC2] md:text-sm">{event.tagline}</span>
         </div>
         <ChevronDown
           className={`size-4 shrink-0 text-[#A89BC2] transition-transform duration-500 ${

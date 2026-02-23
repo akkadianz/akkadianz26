@@ -50,11 +50,6 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
                 alt="SBM College of Engineering and Technology logo"
                 className="size-16 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-20"
               />
-              <img
-                src="/images/founder.jpg"
-                alt="Ln.Dr.N.Jayaraj, Founder & Chairman, SBM Institutions"
-                className="size-16 rounded-full border-2 border-[#5B2EFF]/30 object-cover sm:size-20"
-              />
             </div>
 
             {/* College Info (Fluid Subheadings & Descriptions) */}
