@@ -36,7 +36,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0620]/45 via-[#120A2A]/25 to-[#0B0620]/45" />
 
       {/* Clean Foundation Structure */}
-      <section className="relative z-10 flex min-h-[100svh] w-full items-center">
+      <section className="relative z-10 flex min-h-[100svh] w-full items-center justify-center">
         <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-12">
           <div
             className={`flex flex-col items-center gap-6 text-center transition-all duration-1000 md:gap-8 ${
@@ -44,11 +44,11 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             }`}
           >
             {/* College Info (Fluid Subheadings & Descriptions) */}
-            <div className="mx-auto max-w-[65ch]">
-              <h2 className="font-doctor-glitch whitespace-nowrap text-[clamp(0.8rem,2.8vw,1.6rem)] font-bold uppercase tracking-[0.12em] text-[#E0E7FF]">
+            <div className="mx-auto flex max-w-[65ch] flex-col items-center">
+              <h2 className="font-doctor-glitch text-balance text-[clamp(0.75rem,2.5vw,1.3rem)] font-bold uppercase tracking-[0.12em] text-[#E0E7FF]">
                 SBM College of Engineering & Technology
               </h2>
-              <div className="mx-auto mt-2 max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed text-[#C7D2FE]">
+              <div className="mx-auto mt-2 max-w-[65ch] text-[clamp(0.75rem,2.2vw,1rem)] leading-relaxed text-[#C7D2FE]">
                 <p>Approved by AICTE, New Delhi and Affiliated to Anna University - Chennai</p>
                 <p>SBM Nagar, Thamaraipadi, Trichy Road, Dindigul - 624005</p>
                 <p className="mt-3 font-semibold uppercase tracking-wide">
@@ -61,13 +61,13 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
 
             {/* Main Title (Fluid Typography System) */}
             <div className="mx-auto flex w-full max-w-[65ch] flex-col items-center gap-2 text-center">
-              <h1 className="font-inception-title mx-auto whitespace-nowrap text-[clamp(2.4rem,9vw,8rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
+              <h1 className="font-inception-title break-words text-[clamp(2rem,7.5vw,6rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
                 AKKADIANZ'26
               </h1>
-              <p className="text-[clamp(1.2rem,4vw,2rem)] font-semibold uppercase text-[#c8b8e8]">
+              <p className="text-balance text-[clamp(0.85rem,2.8vw,1.4rem)] font-semibold uppercase text-[#c8b8e8]">
                 A National Level Technical Symposium
               </p>
-              <p className="mx-auto max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed tracking-widest text-[#a0a0c0]">
+              <p className="mx-auto max-w-[65ch] text-[clamp(0.75rem,2.2vw,1rem)] leading-relaxed tracking-widest text-[#a0a0c0]">
                 13 March 2026 // SBMCET, Dindigul
               </p>
             </div>
@@ -76,7 +76,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             <div className="mt-4 flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
               <button
                 onClick={handleEnter}
-                className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg border border-[#7F5AF0]/50 bg-[#5B2EFF]/20 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-[#E8E0F0] backdrop-blur-sm transition-all duration-300 hover:border-[#00D4FF]/60 hover:bg-[#5B2EFF]/30 hover:shadow-[0_0_40px_rgba(91,46,255,0.4)] sm:w-auto md:text-base"
+                className="group relative inline-flex w-full max-w-[300px] items-center justify-center gap-2 overflow-hidden rounded-lg border border-[#7F5AF0]/50 bg-[#5B2EFF]/20 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-[#E8E0F0] backdrop-blur-sm transition-all duration-300 hover:border-[#00D4FF]/60 hover:bg-[#5B2EFF]/30 hover:shadow-[0_0_40px_rgba(91,46,255,0.4)] sm:w-auto md:text-base"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[#5B2EFF]/0 via-[#00D4FF]/10 to-[#5B2EFF]/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <span className="relative">Enter the Construct</span>
@@ -98,4 +98,3 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
     </div>
   )
 }
-
