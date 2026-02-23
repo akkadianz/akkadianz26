@@ -22,7 +22,6 @@ const PATRON: Person = {
 const CONVENOR: Person = {
   name: 'Mr. S. Senthil Kumaran, M.E., Ph.D.',
   title: 'HoD/ECE & BME, SBMCET',
-  phone: '+91 97915 70530',
 }
 
 const FACULTY_COORDINATORS: Person[] = [
