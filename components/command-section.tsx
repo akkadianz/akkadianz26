@@ -26,17 +26,37 @@ const CONVENOR: Person = {
 }
 
 const FACULTY_COORDINATORS: Person[] = [
-  { name: 'Mr. K. Thamari Kannan, M.E., AP/ECE', phone: '+91 88254 08677' },
-  { name: 'Ms. T. Srimathi, M.E., AP/ECE', phone: '+91 75388 05110' },
-  { name: 'Ms. J. Sahaya Sophia, M.E., AP/ECE', phone: '+91 86100 98003' },
-  { name: 'Mr. M. Vignesh, M.E., AP/BME', phone: '+91 63695 75719' },
+  { name: 'Mr. K. Thamari Kannan, M.E., AP/ECE' },
+  { name: 'Ms. T. Srimathi, M.E., AP/ECE' },
+  { name: 'Ms. J. Sahaya Sophia, M.E., AP/ECE' },
+  { name: 'Mr. M. Vignesh, M.E., AP/BME' },
 ]
 
-const STUDENT_COORDINATORS: Person[] = [
-  { name: 'Mr. R. Abdul Kalam, IV/ECE', phone: '+91 82705 95133' },
-  { name: 'Mr. S. Hari Sankar, III/ECE', phone: '+91 99400 37292' },
-  { name: 'Mr. Thirumurugan, II/ECE', phone: '+91 63828 08992' },
-  { name: 'Mr. Praveen Kumar, II/BME', phone: '+91 73589 15324' },
+const ASSOCIATION_MEMBERS = [
+  { title: 'President', names: ['R Abdul Kalam - IV/ECE'] },
+  { title: 'Vice-President', names: ['B Sharmila - III/ECE'] },
+  { title: 'Secretary', names: ['R Sivasankari - IV/ECE'] },
+  { title: 'Joint-Secretary', names: ['S Sanjai - III/ECE'] },
+  { title: 'Treasurer', names: ['S Hari Sankar - III/ECE'] },
+  { title: 'Joint-Treasurer', names: ['G Vidhya - II/ECE'] },
+  {
+    title: 'Boys Coordinators',
+    names: [
+      'M Gnana Chouthri - IV/ECE',
+      'V Sriram - III/ECE',
+      'N Surendaramoorthy - II/ECE',
+      'B Praveen Kumar - II/BME',
+    ],
+  },
+  {
+    title: 'Girls Coordinators',
+    names: [
+      'P Pretheebavathi - IV/ECE',
+      'K Nithya sri - III/ECE',
+      'P Naachar - II/ECE',
+      'M Anusiya - II/BME',
+    ],
+  },
 ]
 
 function PersonCard({ person }: { person: Person }) {
@@ -70,6 +90,27 @@ function SectionBlock({ label, children }: { label: string; children: React.Reac
         <div className="h-px flex-1 bg-gradient-to-l from-[#5B2EFF]/50 to-transparent" />
       </div>
       {children}
+    </div>
+  )
+}
+
+function AssociationGroup({
+  title,
+  names,
+}: {
+  title: string
+  names: string[]
+}) {
+  return (
+    <div className="construct-panel rounded-xl p-6 md:p-8">
+      <div className="space-y-2 text-left">
+        <p className="font-body text-sm font-semibold leading-relaxed text-foreground md:text-base">{title}</p>
+        {names.map((name) => (
+          <p key={name} className="font-body text-sm font-normal leading-relaxed text-muted-foreground md:text-base">
+            {name}
+          </p>
+        ))}
+      </div>
     </div>
   )
 }
@@ -120,10 +161,10 @@ export default function CommandSection() {
         </FadeInOnScroll>
 
         <FadeInOnScroll delay={550}>
-          <SectionBlock label="Student Coordinators">
+          <SectionBlock label="ASSOCIATION MEMBERS">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
-              {STUDENT_COORDINATORS.map((p) => (
-                <PersonCard key={p.name} person={p} />
+              {ASSOCIATION_MEMBERS.map((group) => (
+                <AssociationGroup key={group.title} title={group.title} names={group.names} />
               ))}
             </div>
           </SectionBlock>
