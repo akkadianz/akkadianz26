@@ -39,12 +39,12 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
       <section className="relative z-10 flex min-h-[100svh] w-full items-center">
         <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-12">
           <div
-            className={`flex flex-col gap-6 text-left transition-all duration-1000 md:gap-8 ${
+            className={`flex flex-col items-center gap-6 text-center transition-all duration-1000 md:gap-8 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             {/* Header / Logos (Clean inline flow) */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <img
                 src="/images/sbm-logo.jpg"
                 alt="SBM College of Engineering and Technology logo"
@@ -53,11 +53,11 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             </div>
 
             {/* College Info (Fluid Subheadings & Descriptions) */}
-            <div>
+            <div className="mx-auto max-w-[65ch]">
               <h2 className="text-[clamp(1rem,3.5vw,1.6rem)] font-bold uppercase tracking-normal text-[#E0E7FF]">
                 SBM College of Engineering & Technology
               </h2>
-              <div className="mt-2 max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed text-[#C7D2FE]">
+              <div className="mx-auto mt-2 max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed text-[#C7D2FE]">
                 <p>Approved by AICTE, New Delhi and Affiliated to Anna University - Chennai</p>
                 <p>SBM Nagar, Thamaraipadi, Trichy Road, Dindigul - 624005</p>
                 <p className="mt-3 font-semibold uppercase tracking-wide">
@@ -69,20 +69,20 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             </div>
 
             {/* Main Title (Fluid Typography System) */}
-            <div className="flex flex-col gap-2">
+            <div className="mx-auto flex max-w-[65ch] flex-col gap-2">
               <h1 className="font-inception-title break-words text-[clamp(2.5rem,8vw,7rem)] font-extrabold uppercase leading-[1.05] tracking-tight text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)]">
                 AKKADIANZ'26
               </h1>
               <p className="text-[clamp(1.2rem,4vw,2rem)] font-semibold uppercase text-[#c8b8e8]">
                 A National Level Technical Symposium
               </p>
-              <p className="max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed tracking-widest text-[#a0a0c0]">
+              <p className="mx-auto max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed tracking-widest text-[#a0a0c0]">
                 13 March 2026 // SBMCET, Dindigul
               </p>
             </div>
 
             {/* Space Utilization Button System */}
-            <div className="mt-4 flex w-full flex-col gap-4 sm:flex-row">
+            <div className="mt-4 flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
               <button
                 onClick={handleEnter}
                 className="group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg border border-[#7F5AF0]/50 bg-[#5B2EFF]/20 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-[#E8E0F0] backdrop-blur-sm transition-all duration-300 hover:border-[#00D4FF]/60 hover:bg-[#5B2EFF]/30 hover:shadow-[0_0_40px_rgba(91,46,255,0.4)] sm:w-auto md:text-base"
