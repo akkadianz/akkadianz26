@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+﻿@import 'tailwindcss';
 @import 'tw-animate-css';
 
 @font-face {
@@ -10,6 +10,13 @@
 }
 
 @custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: 'DoctorGlitch';
+  src: url('/fonts/Doctor Glitch.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #0B0620;
@@ -188,7 +195,7 @@
   text-shadow: 0 0 10px rgba(127, 90, 240, 0.8), 0 0 30px rgba(91, 46, 255, 0.5), 0 0 60px rgba(37, 99, 235, 0.25);
 }
 
-/* Gradient heading text: purple → blue */
+/* Gradient heading text: purple â†’ blue */
 .gradient-text {
   background: linear-gradient(135deg, #7F5AF0 0%, #5B2EFF 40%, #3B82F6 100%);
   -webkit-background-clip: text;
@@ -481,3 +488,8 @@ section[id] {
     animation-duration: 8s;
   }
 }
+
+.font-doctor-glitch {
+  font-family: 'DoctorGlitch', 'Orbitron', sans-serif;
+}
+

@@ -45,7 +45,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
           >
             {/* College Info (Fluid Subheadings & Descriptions) */}
             <div className="mx-auto max-w-[65ch]">
-              <h2 className="text-[clamp(1rem,3.5vw,1.6rem)] font-bold uppercase tracking-normal text-[#E0E7FF]">
+              <h2 className="font-doctor-glitch text-[clamp(1rem,3.5vw,1.6rem)] font-bold uppercase tracking-normal text-[#E0E7FF]">
                 SBM College of Engineering & Technology
               </h2>
               <div className="mx-auto mt-2 max-w-[65ch] text-[clamp(1rem,3.2vw,1.25rem)] leading-relaxed text-[#C7D2FE]">
@@ -98,3 +98,4 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
     </div>
   )
 }
+
