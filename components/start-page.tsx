@@ -112,8 +112,7 @@ export default function StartPage({ onEnter }: { onEnter: () => void }) {
             }`}
           >
             <h1
-              className="text-3xl font-bold uppercase tracking-[0.1em] text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)] sm:text-4xl sm:tracking-[0.15em] md:text-6xl lg:text-7xl xl:text-9xl text-balance"
-              style={{ fontFamily: "var(--font-inception)" }}
+              className="font-inception-title text-3xl font-normal uppercase tracking-[0.1em] text-[#f0f0ff] drop-shadow-[0_0_30px_rgba(127,90,240,0.5)] sm:text-4xl sm:tracking-[0.15em] md:text-6xl lg:text-7xl xl:text-9xl text-balance"
             >
               {"AKKADIANZ'26"}
             </h1>
