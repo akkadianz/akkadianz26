@@ -25,7 +25,7 @@ const CONVENOR: Person = {
 }
 
 const FACULTY_COORDINATORS: Person[] = [
-  { name: 'Mr. K. Thamari Kannan, M.E., AP/ECE' },
+  { name: 'Mr. K. Thamarai Kannan, M.E., AP/ECE' },
   { name: 'Ms. T. Srimathi, M.E., AP/ECE' },
   { name: 'Ms. J. Sahaya Sophia, M.E., AP/ECE' },
   { name: 'Mr. M. Vignesh, M.E., AP/BME' },
