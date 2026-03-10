@@ -11,6 +11,7 @@ import LayerSection from '@/components/event-accordion'
 import ProtocolSection from '@/components/protocol-section'
 import RecognitionSection from '@/components/recognition-section'
 import AbstractSubmission from '@/components/abstract-submission'
+import EventSchedule from '@/components/event-schedule'
 import CommandSection from '@/components/command-section'
 import QuerySection from '@/components/query-section'
 
@@ -19,6 +20,7 @@ const NAV_LINKS = [
   { label: 'Countdown', href: '#countdown' },
   { label: 'Events', href: '#events' },
   { label: 'Abstract', href: '#abstract' },
+  { label: 'Schedule', href: '#schedule' },
   { label: 'Protocol', href: '#protocol' },
   { label: 'Recognition', href: '#recognition' },
   { label: 'Command', href: '#command' },
@@ -204,6 +206,7 @@ export default function Home() {
             <CountdownTimer />
             <LayerSection />
             <AbstractSubmission />
+            <EventSchedule />
             <ProtocolSection />
             <RecognitionSection />
             <CommandSection />
