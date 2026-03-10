@@ -103,7 +103,7 @@ export default function Home() {
                 event.preventDefault()
                 openStartPage()
               }}
-              className="inline-flex min-w-0 max-w-[70vw] items-center gap-2 font-sans text-lg font-bold uppercase tracking-[0.1em] text-[#E8E0F0] sm:text-xl"
+              className="inline-flex min-w-0 max-w-[68vw] items-center gap-2 font-sans text-base font-bold uppercase tracking-[0.08em] text-[#E8E0F0] sm:max-w-none sm:text-xl"
             >
               <img
                 src="/images/akkadianz-logo.png"
@@ -116,14 +116,14 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="inline-flex items-center justify-center rounded-md border border-[#7F5AF0]/35 bg-[#120A2A]/70 p-2 text-[#C7D2FE] transition-colors hover:text-[#00D4FF] sm:hidden"
+              className="inline-flex items-center justify-center rounded-md border border-[#7F5AF0]/35 bg-[#120A2A]/70 p-2 text-[#C7D2FE] transition-colors hover:text-[#00D4FF] lg:hidden"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
             </button>
 
-            <nav className="hidden items-center gap-2 sm:flex">
+            <nav className="hidden items-center gap-1.5 lg:flex">
               {NAV_LINKS.map((link) => {
                 const isActive = activeHref === link.href
                 return (
@@ -131,7 +131,7 @@ export default function Home() {
                     key={link.href}
                     href={link.href}
                     onClick={(event) => handleNavClick(event, link.href)}
-                    className={`rounded-md border px-2.5 py-1.5 font-sans text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${
+                    className={`rounded-md border px-2.5 py-1.5 font-sans text-[10px] font-bold uppercase tracking-[0.12em] transition-colors xl:px-3 ${
                       isActive
                         ? 'border-[#00D4FF]/35 bg-[#00D4FF]/10 text-[#00D4FF]'
                         : 'border-transparent text-[#C7D2FE] hover:border-[#5B2EFF]/40 hover:text-[#00D4FF]'
@@ -145,7 +145,7 @@ export default function Home() {
           </div>
 
           {mobileOpen && (
-            <nav className="absolute left-0 top-full w-full overflow-hidden border-t border-[#7F5AF0]/25 bg-gradient-to-b from-[#120A2A]/95 to-[#0B0620]/95 p-6 sm:hidden">
+            <nav className="absolute left-0 top-full w-full overflow-hidden border-t border-[#7F5AF0]/25 bg-gradient-to-b from-[#120A2A]/95 to-[#0B0620]/95 p-6 lg:hidden">
               <div className="grid grid-cols-1 gap-3">
               {NAV_LINKS.map((link) => {
                 const isActive = activeHref === link.href
