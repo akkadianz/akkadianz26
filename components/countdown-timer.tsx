@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { FadeInOnScroll } from '@/components/hero-section'
 
-const TARGET_DATE = new Date('2026-03-10T23:59:59+05:30').getTime()
+const TARGET_DATE = new Date('2026-03-12T23:59:59+05:30').getTime()
 
 interface TimeLeft {
   days: number
