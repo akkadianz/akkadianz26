@@ -40,7 +40,7 @@ export default function AbstractSubmission() {
               >
                 akkadianz.ece.sbmcet@gmail.com
               </a>{' '}
-              on or before <span className="font-semibold text-foreground">10 March 2026</span>.
+              on or before <span className="font-semibold text-foreground">12 March 2026</span>.
             </p>
 
             <div className="mb-6 space-y-4 text-center">
@@ -87,7 +87,7 @@ export default function AbstractSubmission() {
                 Submission Deadline
               </p>
               <p className="font-sans text-2xl font-semibold tracking-wide text-foreground glow-text md:text-3xl">
-                10 March 2026
+                12 March 2026
               </p>
             </div>
 

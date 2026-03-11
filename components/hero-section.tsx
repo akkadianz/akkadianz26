@@ -173,7 +173,7 @@ export default function HeroSection() {
             <DetailChip icon={<Calendar className="size-3.5 sm:size-4" />} label="13 March 2026" />
             <DetailChip icon={<MapPin className="size-3.5 sm:size-4" />} label="SBMCET, Dindigul" />
             <DetailChip icon={<IndianRupee className="size-3.5 sm:size-4" />} label="Online: 150 / Offline: 200" />
-            <DetailChip icon={<Clock className="size-3.5 sm:size-4" />} label="Last Reg: 10 March 2026" />
+            <DetailChip icon={<Clock className="size-3.5 sm:size-4" />} label="Last Reg: 12 March 2026" />
           </div>
         </div>
 
