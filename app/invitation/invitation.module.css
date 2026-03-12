@@ -238,8 +238,9 @@
 .reflectionTitle {
   margin: 0;
   line-height: 0.86;
-  letter-spacing: 0.21em;
-  font-size: clamp(2.3rem, 10.8vw, 8.8rem);
+  letter-spacing: 0.14em;
+  font-size: clamp(2rem, 8.8vw, 7.2rem);
+  white-space: nowrap;
   font-weight: 400;
   background: linear-gradient(90deg, #9fbdff 0%, #f4f8ff 42%, #a7c5ff 66%, #c3a4ff 100%);
   -webkit-background-clip: text;
@@ -254,7 +255,7 @@
 }
 
 .reflectionLarge {
-  font-size: clamp(2.7rem, 12.5vw, 10rem);
+  font-size: clamp(2.3rem, 10vw, 8rem);
 }
 
 .reflectionCopy {
