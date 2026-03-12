@@ -249,6 +249,10 @@
   filter: drop-shadow(0 0 20px rgba(114, 182, 255, 0.42));
 }
 
+.inceptionTitle {
+  font-family: 'InceptionManual', var(--font-inception-local), 'Orbitron', sans-serif;
+}
+
 .reflectionLarge {
   font-size: clamp(2.7rem, 12.5vw, 10rem);
 }

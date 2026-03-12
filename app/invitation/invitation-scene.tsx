@@ -18,14 +18,16 @@ type ScenePaneProps = {
   onReturnHome: () => void
 }
 
-function ReflectionTitle({ text, large = false }: { text: string; large?: boolean }) {
+function ReflectionTitle({ text, large = false, inception = false }: { text: string; large?: boolean; inception?: boolean }) {
   return (
     <div className={styles.reflectionWrap}>
-      <p className={`${styles.reflectionTitle} ${large ? styles.reflectionLarge : ''} ${styles.neonSweep} ${bebasNeue.className}`}>
+      <p
+        className={`${styles.reflectionTitle} ${large ? styles.reflectionLarge : ''} ${styles.neonSweep} ${inception ? styles.inceptionTitle : bebasNeue.className}`}
+      >
         {text}
       </p>
       <p
-        className={`${styles.reflectionTitle} ${large ? styles.reflectionLarge : ''} ${styles.reflectionCopy} ${bebasNeue.className}`}
+        className={`${styles.reflectionTitle} ${large ? styles.reflectionLarge : ''} ${styles.reflectionCopy} ${inception ? styles.inceptionTitle : bebasNeue.className}`}
         aria-hidden="true"
       >
         {text}
@@ -47,7 +49,7 @@ function ScenePane({ index, phase, onAdvance, onReturnHome }: ScenePaneProps) {
             <p className={`${styles.heroLine} ${bebasNeue.className}`}>ENTER</p>
             <p className={`${styles.heroLine} ${bebasNeue.className}`}>THE</p>
             <p className={`${styles.heroLine} ${bebasNeue.className}`}>CONSTRUCT</p>
-            <ReflectionTitle text="AKKADIANZ'26" large />
+            <ReflectionTitle text="AKKADIANZ'26" large inception />
             <p className={`${styles.heroLine} ${styles.heroSub} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
           </div>
           <button className={styles.navButton} type="button" onClick={onAdvance}>
@@ -98,7 +100,7 @@ function ScenePane({ index, phase, onAdvance, onReturnHome }: ScenePaneProps) {
           <div className={styles.finalStack}>
             <p className={`${styles.finalLine} ${bebasNeue.className}`}>YOU ARE INVITED</p>
             <p className={`${styles.finalLine} ${bebasNeue.className}`}>TO WITNESS THE BEGINNING</p>
-            <ReflectionTitle text="AKKADIANZ'26" large />
+            <ReflectionTitle text="AKKADIANZ'26" large inception />
             <p className={`${styles.finalSubline} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
             <p className={styles.finalNote}>Join us as we initiate the construct of innovation.</p>
           </div>
