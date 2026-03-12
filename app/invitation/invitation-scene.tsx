@@ -1,158 +1,214 @@
 'use client'
 
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { Bebas_Neue, Montserrat } from 'next/font/google'
 import styles from './invitation.module.css'
 
 const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' })
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600'] })
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
-const HERO_LINES = ['ENTER', 'THE', 'CONSTRUCT', "AKKADIANZ'26", 'INAUGURAL', 'CEREMONY']
+const TRANSITION_MS = 980
 
-const DETAILS = [
-  { label: 'DATE', value: '13 March 2026' },
-  { label: 'TIME', value: '10:30 AM' },
-  {
-    label: 'VENUE',
-    value: 'SBM College of Engineering & Technology\nDindigul',
-  },
-]
+type SceneIndex = 0 | 1 | 2 | 3
+
+type ScenePaneProps = {
+  index: SceneIndex
+  phase: 'steady' | 'enter' | 'exit'
+  onAdvance: () => void
+  onReturnHome: () => void
+}
+
+function ReflectionTitle({ text }: { text: string }) {
+  return (
+    <div className={styles.reflectionWrap}>
+      <p className={`${styles.reflectionTitle} ${bebasNeue.className}`}>{text}</p>
+      <p className={`${styles.reflectionTitle} ${styles.reflectionCopy} ${bebasNeue.className}`} aria-hidden="true">
+        {text}
+      </p>
+    </div>
+  )
+}
+
+function ScenePane({ index, phase, onAdvance, onReturnHome }: ScenePaneProps) {
+  return (
+    <section
+      className={`${styles.scene} ${phase === 'enter' ? styles.sceneEnter : ''} ${phase === 'exit' ? styles.sceneExit : ''}`}
+      data-scene={index + 1}
+      aria-hidden={phase === 'exit'}
+    >
+      {index === 0 && (
+        <div className={styles.sceneContent}>
+          <div className={styles.heroStack}>
+            <p className={`${styles.heroLine} ${bebasNeue.className}`}>ENTER</p>
+            <p className={`${styles.heroLine} ${bebasNeue.className}`}>THE</p>
+            <p className={`${styles.heroLine} ${bebasNeue.className}`}>CONSTRUCT</p>
+            <ReflectionTitle text="AKKADIANZ'26" />
+            <p className={`${styles.heroLine} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
+          </div>
+          <button className={styles.navButton} type="button" onClick={onAdvance}>
+            ENTER
+          </button>
+        </div>
+      )}
+
+      {index === 1 && (
+        <div className={styles.sceneContent}>
+          <div className={styles.constructBlock}>
+            <p className={`${styles.sceneHeadline} ${bebasNeue.className}`}>A NATIONAL LEVEL</p>
+            <p className={`${styles.sceneHeadline} ${bebasNeue.className}`}>TECHNICAL SYMPOSIUM</p>
+            <p className={styles.sceneBody}>Department of</p>
+            <p className={styles.sceneBody}>Electronics and Communication Engineering</p>
+            <p className={styles.sceneBody}>& Biomedical Engineering</p>
+            <p className={styles.sceneBodyStrong}>SBM College of Engineering and Technology</p>
+          </div>
+          <button className={styles.navButton} type="button" onClick={onAdvance}>
+            GO DEEPER
+          </button>
+        </div>
+      )}
+
+      {index === 2 && (
+        <div className={styles.sceneContent}>
+          <div className={styles.eventGrid}>
+            <article className={styles.eventCard}>
+              <p className={`${styles.eventLabel} ${bebasNeue.className}`}>DATE</p>
+              <p className={styles.eventValue}>13 MARCH 2026</p>
+            </article>
+            <article className={styles.eventCard}>
+              <p className={`${styles.eventLabel} ${bebasNeue.className}`}>TIME</p>
+              <p className={styles.eventValue}>10:30 AM</p>
+            </article>
+            <article className={styles.eventCard}>
+              <p className={`${styles.eventLabel} ${bebasNeue.className}`}>VENUE</p>
+              <p className={styles.eventValue}>SBM COLLEGE OF ENGINEERING & TECHNOLOGY</p>
+              <p className={styles.eventValue}>DINDIGUL</p>
+            </article>
+          </div>
+          <button className={styles.navButton} type="button" onClick={onAdvance}>
+            NEXT LAYER
+          </button>
+        </div>
+      )}
+
+      {index === 3 && (
+        <div className={styles.sceneContent}>
+          <div className={styles.finalBlock}>
+            <p className={`${styles.finalLine} ${bebasNeue.className}`}>WELCOME</p>
+            <p className={`${styles.finalLine} ${bebasNeue.className}`}>TO</p>
+            <ReflectionTitle text="AKKADIANZ'26" />
+            <p className={`${styles.finalSubline} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
+          </div>
+          <button className={styles.navButton} type="button" onClick={onReturnHome}>
+            RETURN TO HOME
+          </button>
+        </div>
+      )}
+    </section>
+  )
+}
 
 export default function InvitationScene() {
-  const [scrollY, setScrollY] = useState(0)
+  const [activeScene, setActiveScene] = useState<SceneIndex>(0)
+  const [outgoingScene, setOutgoingScene] = useState<SceneIndex | null>(null)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const particles = useMemo(
     () =>
-      Array.from({ length: 32 }, (_, i) => ({
-        id: i,
-        left: ((i * 13) % 100) + 0.2,
-        top: ((i * 19) % 100) + 0.2,
-        size: 1 + (i % 3),
-        duration: 12 + (i % 7) * 2,
-        delay: (i % 9) * -1.2,
+      Array.from({ length: 34 }, (_, id) => ({
+        id,
+        x: ((id * 17) % 100) + 0.2,
+        y: ((id * 23) % 100) + 0.2,
+        size: 1 + (id % 4),
+        duration: 10 + (id % 8) * 1.8,
+        delay: (id % 11) * -0.9,
       })),
     []
   )
 
   useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
+    const previousHtmlOverflow = document.documentElement.style.overflow
+    const previousBodyOverflow = document.body.style.overflow
 
-    return () => window.removeEventListener('scroll', onScroll)
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow
+      document.body.style.overflow = previousBodyOverflow
+    }
   }, [])
 
   useEffect(() => {
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible)
-          }
-        }
-      },
-      { threshold: 0.24, rootMargin: '0px 0px -10% 0px' }
-    )
-
-    targets.forEach((target) => observer.observe(target))
-
-    return () => observer.disconnect()
+    return () => {
+      if (transitionTimer.current) {
+        clearTimeout(transitionTimer.current)
+      }
+    }
   }, [])
 
+  const moveToScene = (next: SceneIndex) => {
+    if (next === activeScene || isTransitioning) return
+
+    setOutgoingScene(activeScene)
+    setActiveScene(next)
+    setIsTransitioning(true)
+
+    if (transitionTimer.current) {
+      clearTimeout(transitionTimer.current)
+    }
+
+    transitionTimer.current = setTimeout(() => {
+      setOutgoingScene(null)
+      setIsTransitioning(false)
+    }, TRANSITION_MS)
+  }
+
+  const handleAdvance = () => {
+    const next = Math.min(activeScene + 1, 3) as SceneIndex
+    moveToScene(next)
+  }
+
+  const handleReturnHome = () => {
+    window.location.href = '/'
+  }
+
   return (
-    <main className={`${styles.page} ${montserrat.className}`}>
-      <div className={styles.backgroundBase} />
-      <div className={styles.gridLayer} style={{ transform: `translateY(${scrollY * 0.12}px)` }} />
-      <div className={styles.glowTop} style={{ transform: `translateY(${scrollY * -0.05}px)` }} />
-      <div className={styles.glowBottom} style={{ transform: `translateY(${scrollY * 0.08}px)` }} />
+    <main className={`${styles.viewport} ${styles[`scene${activeScene + 1}`]} ${montserrat.className}`}>
+      <div className={styles.ambientBackdrop} />
+      <div className={styles.mirrorTunnel} />
+      <div className={styles.archGrid} />
+      <div className={styles.bloomLight} />
 
       <div className={styles.particleField} aria-hidden="true">
-        {particles.map((particle) => (
+        {particles.map((p) => (
           <span
-            key={particle.id}
+            key={p.id}
             className={styles.particle}
             style={
               {
-                '--particle-left': `${particle.left}%`,
-                '--particle-top': `${particle.top}%`,
-                '--particle-size': `${particle.size}px`,
-                '--particle-duration': `${particle.duration}s`,
-                '--particle-delay': `${particle.delay}s`,
+                '--px': `${p.x}%`,
+                '--py': `${p.y}%`,
+                '--ps': `${p.size}px`,
+                '--pd': `${p.duration}s`,
+                '--pl': `${p.delay}s`,
               } as CSSProperties
             }
           />
         ))}
       </div>
 
-      <section className={styles.sectionHero}>
-        <div className={styles.heroBlock}>
-          {HERO_LINES.map((line, index) => (
-            <p
-              key={line}
-              className={`${styles.heroLine} ${bebasNeue.className} ${line === "AKKADIANZ'26" ? styles.heroHighlight : ''}`}
-              style={{ animationDelay: `${index * 0.18 + 0.2}s` }}
-            >
-              {line}
-            </p>
-          ))}
-          <p className={styles.heroSubline}>National Level Technical Symposium</p>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={`${styles.reveal} ${styles.centerBlock}`} data-reveal>
-          <p className={`${styles.sectionTitle} ${bebasNeue.className}`}>THE CONSTRUCT</p>
-          <p className={styles.bodyText}>
-            {"AKKADIANZ'26 is a National Level Technical Symposium organized by the Department of Electronics and Communication Engineering and Biomedical Engineering at SBM College of Engineering and Technology, Dindigul."}
-          </p>
-          <p className={styles.bodyText}>
-            A space where innovation begins, ideas evolve, and intellect meets possibility.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.detailStack}>
-          {DETAILS.map((detail, index) => (
-            <article
-              key={detail.label}
-              className={`${styles.reveal} ${styles.detailCard}`}
-              data-reveal
-              style={{ transitionDelay: `${index * 140}ms` }}
-            >
-              <p className={`${styles.detailLabel} ${bebasNeue.className}`}>{detail.label}</p>
-              <p className={styles.detailValue}>
-                {detail.value.split('\n').map((line) => (
-                  <span key={`${detail.label}-${line}`}>
-                    {line}
-                    <br />
-                  </span>
-                ))}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={`${styles.reveal} ${styles.centerBlock}`} data-reveal>
-          <p className={`${styles.sectionTitle} ${bebasNeue.className}`}>INVITATION</p>
-          <p className={styles.bodyText}>We cordially invite you to witness the inauguration of AKKADIANZ'26.</p>
-          <p className={styles.bodyText}>
-            Join us as we initiate the first layer of this technical construct and celebrate innovation, knowledge, and engineering excellence.
-          </p>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.sectionClosing}`}>
-        <div className={styles.closingFrame} data-reveal>
-          <p className={`${styles.closingLine} ${bebasNeue.className}`}>WELCOME</p>
-          <p className={`${styles.closingLine} ${bebasNeue.className}`}>TO</p>
-          <p className={`${styles.closingLine} ${bebasNeue.className} ${styles.heroHighlight}`}>AKKADIANZ'26</p>
-        </div>
-      </section>
+      <div className={styles.sceneStage}>
+        {outgoingScene !== null && (
+          <ScenePane index={outgoingScene} phase="exit" onAdvance={handleAdvance} onReturnHome={handleReturnHome} />
+        )}
+        <ScenePane
+          index={activeScene}
+          phase={isTransitioning ? 'enter' : 'steady'}
+          onAdvance={handleAdvance}
+          onReturnHome={handleReturnHome}
+        />
+      </div>
     </main>
   )
 }
