@@ -7,7 +7,7 @@ import styles from './invitation.module.css'
 const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' })
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
-const TRANSITION_MS = 980
+const TRANSITION_MS = 1100
 
 type SceneIndex = 0 | 1 | 2 | 3
 
@@ -18,11 +18,16 @@ type ScenePaneProps = {
   onReturnHome: () => void
 }
 
-function ReflectionTitle({ text }: { text: string }) {
+function ReflectionTitle({ text, large = false }: { text: string; large?: boolean }) {
   return (
     <div className={styles.reflectionWrap}>
-      <p className={`${styles.reflectionTitle} ${bebasNeue.className}`}>{text}</p>
-      <p className={`${styles.reflectionTitle} ${styles.reflectionCopy} ${bebasNeue.className}`} aria-hidden="true">
+      <p className={`${styles.reflectionTitle} ${large ? styles.reflectionLarge : ''} ${styles.neonSweep} ${bebasNeue.className}`}>
+        {text}
+      </p>
+      <p
+        className={`${styles.reflectionTitle} ${large ? styles.reflectionLarge : ''} ${styles.reflectionCopy} ${bebasNeue.className}`}
+        aria-hidden="true"
+      >
         {text}
       </p>
     </div>
@@ -38,26 +43,24 @@ function ScenePane({ index, phase, onAdvance, onReturnHome }: ScenePaneProps) {
     >
       {index === 0 && (
         <div className={styles.sceneContent}>
-          <div className={styles.heroStack}>
+          <div className={styles.entryStack}>
             <p className={`${styles.heroLine} ${bebasNeue.className}`}>ENTER</p>
             <p className={`${styles.heroLine} ${bebasNeue.className}`}>THE</p>
             <p className={`${styles.heroLine} ${bebasNeue.className}`}>CONSTRUCT</p>
-            <ReflectionTitle text="AKKADIANZ'26" />
-            <p className={`${styles.heroLine} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
+            <ReflectionTitle text="AKKADIANZ'26" large />
+            <p className={`${styles.heroLine} ${styles.heroSub} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
           </div>
           <button className={styles.navButton} type="button" onClick={onAdvance}>
-            ENTER
+            ENTER THE CONSTRUCT
           </button>
         </div>
       )}
 
       {index === 1 && (
         <div className={styles.sceneContent}>
-          <div className={styles.constructBlock}>
-            <p className={`${styles.sceneHeadline} ${bebasNeue.className}`}>A NATIONAL LEVEL</p>
-            <p className={`${styles.sceneHeadline} ${bebasNeue.className}`}>TECHNICAL SYMPOSIUM</p>
-            <p className={styles.sceneBody}>Department of</p>
-            <p className={styles.sceneBody}>Electronics and Communication Engineering</p>
+          <div className={styles.inviteStack}>
+            <p className={`${styles.sceneHeadline} ${styles.neonSweep} ${bebasNeue.className}`}>A NATIONAL LEVEL TECHNICAL SYMPOSIUM</p>
+            <p className={styles.sceneBody}>Department of Electronics and Communication Engineering</p>
             <p className={styles.sceneBody}>& Biomedical Engineering</p>
             <p className={styles.sceneBodyStrong}>SBM College of Engineering and Technology</p>
           </div>
@@ -85,18 +88,19 @@ function ScenePane({ index, phase, onAdvance, onReturnHome }: ScenePaneProps) {
             </article>
           </div>
           <button className={styles.navButton} type="button" onClick={onAdvance}>
-            NEXT LAYER
+            INITIATE
           </button>
         </div>
       )}
 
       {index === 3 && (
         <div className={styles.sceneContent}>
-          <div className={styles.finalBlock}>
-            <p className={`${styles.finalLine} ${bebasNeue.className}`}>WELCOME</p>
-            <p className={`${styles.finalLine} ${bebasNeue.className}`}>TO</p>
-            <ReflectionTitle text="AKKADIANZ'26" />
+          <div className={styles.finalStack}>
+            <p className={`${styles.finalLine} ${bebasNeue.className}`}>YOU ARE INVITED</p>
+            <p className={`${styles.finalLine} ${bebasNeue.className}`}>TO WITNESS THE BEGINNING</p>
+            <ReflectionTitle text="AKKADIANZ'26" large />
             <p className={`${styles.finalSubline} ${bebasNeue.className}`}>INAUGURAL CEREMONY</p>
+            <p className={styles.finalNote}>Join us as we initiate the construct of innovation.</p>
           </div>
           <button className={styles.navButton} type="button" onClick={onReturnHome}>
             RETURN TO HOME
@@ -115,13 +119,13 @@ export default function InvitationScene() {
 
   const particles = useMemo(
     () =>
-      Array.from({ length: 34 }, (_, id) => ({
+      Array.from({ length: 38 }, (_, id) => ({
         id,
-        x: ((id * 17) % 100) + 0.2,
-        y: ((id * 23) % 100) + 0.2,
+        x: ((id * 19) % 100) + 0.2,
+        y: ((id * 31) % 100) + 0.2,
         size: 1 + (id % 4),
-        duration: 10 + (id % 8) * 1.8,
-        delay: (id % 11) * -0.9,
+        duration: 9 + (id % 7) * 2.1,
+        delay: (id % 9) * -0.8,
       })),
     []
   )
@@ -139,13 +143,14 @@ export default function InvitationScene() {
     }
   }, [])
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       if (transitionTimer.current) {
         clearTimeout(transitionTimer.current)
       }
-    }
-  }, [])
+    },
+    []
+  )
 
   const moveToScene = (next: SceneIndex) => {
     if (next === activeScene || isTransitioning) return
@@ -175,23 +180,25 @@ export default function InvitationScene() {
 
   return (
     <main className={`${styles.viewport} ${styles[`scene${activeScene + 1}`]} ${montserrat.className}`}>
-      <div className={styles.ambientBackdrop} />
-      <div className={styles.mirrorTunnel} />
+      <div className={styles.depthTunnel} />
+      <div className={styles.reflectiveFloor} />
       <div className={styles.archGrid} />
-      <div className={styles.bloomLight} />
+      <div className={styles.glassPanels} />
+      <div className={styles.fogLayer} />
+      <div className={styles.lightSweepLayer} />
 
       <div className={styles.particleField} aria-hidden="true">
-        {particles.map((p) => (
+        {particles.map((particle) => (
           <span
-            key={p.id}
+            key={particle.id}
             className={styles.particle}
             style={
               {
-                '--px': `${p.x}%`,
-                '--py': `${p.y}%`,
-                '--ps': `${p.size}px`,
-                '--pd': `${p.duration}s`,
-                '--pl': `${p.delay}s`,
+                '--px': `${particle.x}%`,
+                '--py': `${particle.y}%`,
+                '--ps': `${particle.size}px`,
+                '--pd': `${particle.duration}s`,
+                '--pl': `${particle.delay}s`,
               } as CSSProperties
             }
           />
