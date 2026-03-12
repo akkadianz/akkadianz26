@@ -468,6 +468,74 @@
   }
 }
 
+@media (max-width: 640px) {
+  .sceneContent {
+    gap: 0.85rem;
+    padding-inline: 0.35rem;
+  }
+
+  .heroLine {
+    font-size: clamp(1.35rem, 8.4vw, 2.6rem);
+    letter-spacing: 0.08em;
+    line-height: 0.92;
+  }
+
+  .heroSub {
+    font-size: clamp(1rem, 5.2vw, 1.6rem);
+    letter-spacing: 0.08em;
+  }
+
+  .reflectionTitle {
+    font-size: clamp(1.9rem, 10.2vw, 3.1rem);
+    letter-spacing: 0.09em;
+    line-height: 0.92;
+  }
+
+  .reflectionLarge {
+    font-size: clamp(2rem, 11vw, 3.4rem);
+  }
+
+  .sceneHeadline {
+    font-size: clamp(1.2rem, 6.6vw, 2rem);
+    letter-spacing: 0.08em;
+  }
+
+  .sceneBody,
+  .sceneBodyStrong {
+    font-size: clamp(0.78rem, 3.4vw, 0.95rem);
+    line-height: 1.45;
+  }
+
+  .eventLabel {
+    font-size: clamp(1.3rem, 7.2vw, 2rem);
+  }
+
+  .eventValue {
+    font-size: clamp(0.72rem, 3.2vw, 0.88rem);
+  }
+
+  .finalLine {
+    font-size: clamp(1.12rem, 6.2vw, 1.75rem);
+    letter-spacing: 0.08em;
+  }
+
+  .finalSubline {
+    font-size: clamp(0.95rem, 4.9vw, 1.4rem);
+    letter-spacing: 0.09em;
+  }
+
+  .finalNote {
+    font-size: clamp(0.74rem, 3.2vw, 0.92rem);
+    line-height: 1.55;
+  }
+
+  .navButton {
+    padding: 0.62rem 1.05rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .depthTunnel::before,
   .depthTunnel::after,
